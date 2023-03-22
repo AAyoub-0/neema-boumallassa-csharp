@@ -46,11 +46,11 @@
             this.dgvEtudiants = new System.Windows.Forms.DataGridView();
             this.nomEtudiant = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.prenomEtudiant = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Classe = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvListeEtudiant = new System.Windows.Forms.DataGridView();
             this.bFermer = new System.Windows.Forms.Button();
             this.PanelLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
-            this.PanelQuitter.SuspendLayout();
             this.PanelMenu.SuspendLayout();
             this.msGlobal.SuspendLayout();
             this.PanelInterieur.SuspendLayout();
@@ -78,7 +78,6 @@
             // 
             // PanelQuitter
             // 
-            this.PanelQuitter.Controls.Add(this.bQuitter);
             this.PanelQuitter.Location = new System.Drawing.Point(899, 0);
             this.PanelQuitter.Name = "PanelQuitter";
             this.PanelQuitter.Size = new System.Drawing.Size(123, 46);
@@ -86,8 +85,9 @@
             // 
             // bQuitter
             // 
+            this.bQuitter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.bQuitter.BackColor = System.Drawing.Color.LightCyan;
-            this.bQuitter.Location = new System.Drawing.Point(4, 3);
+            this.bQuitter.Location = new System.Drawing.Point(899, 35);
             this.bQuitter.Name = "bQuitter";
             this.bQuitter.Size = new System.Drawing.Size(115, 40);
             this.bQuitter.TabIndex = 7;
@@ -134,14 +134,14 @@
             // listeDesEtudiantsToolStripMenuItem
             // 
             this.listeDesEtudiantsToolStripMenuItem.Name = "listeDesEtudiantsToolStripMenuItem";
-            this.listeDesEtudiantsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.listeDesEtudiantsToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
             this.listeDesEtudiantsToolStripMenuItem.Text = "Liste des étudiants";
             this.listeDesEtudiantsToolStripMenuItem.Click += new System.EventHandler(this.listeDesEtudiantsToolStripMenuItem_Click);
             // 
             // ajouterUnEtudiantToolStripMenuItem
             // 
             this.ajouterUnEtudiantToolStripMenuItem.Name = "ajouterUnEtudiantToolStripMenuItem";
-            this.ajouterUnEtudiantToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ajouterUnEtudiantToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
             this.ajouterUnEtudiantToolStripMenuItem.Text = "Ajouter un étudiant";
             this.ajouterUnEtudiantToolStripMenuItem.Click += new System.EventHandler(this.ajouterUnEtudiantToolStripMenuItem_Click);
             // 
@@ -179,32 +179,48 @@
             // 
             this.dgvEtudiants.AllowUserToAddRows = false;
             this.dgvEtudiants.AllowUserToDeleteRows = false;
-            this.dgvEtudiants.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvEtudiants.AllowUserToOrderColumns = true;
+            this.dgvEtudiants.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvEtudiants.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvEtudiants.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.nomEtudiant,
-            this.prenomEtudiant});
-            this.dgvEtudiants.Location = new System.Drawing.Point(0, 3);
+            this.prenomEtudiant,
+            this.Classe});
+            this.dgvEtudiants.Location = new System.Drawing.Point(0, 0);
             this.dgvEtudiants.MultiSelect = false;
             this.dgvEtudiants.Name = "dgvEtudiants";
             this.dgvEtudiants.ReadOnly = true;
-            this.dgvEtudiants.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            this.dgvEtudiants.Size = new System.Drawing.Size(500, 335);
+            this.dgvEtudiants.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
+            this.dgvEtudiants.RowTemplate.ReadOnly = true;
+            this.dgvEtudiants.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvEtudiants.Size = new System.Drawing.Size(806, 482);
             this.dgvEtudiants.TabIndex = 1;
+            this.dgvEtudiants.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEtudiants_CellContentClick);
             // 
             // nomEtudiant
             // 
-            this.nomEtudiant.HeaderText = "nom";
+            this.nomEtudiant.FillWeight = 31.03448F;
+            this.nomEtudiant.HeaderText = "Nom";
             this.nomEtudiant.Name = "nomEtudiant";
             this.nomEtudiant.ReadOnly = true;
-            this.nomEtudiant.Width = 77;
+            this.nomEtudiant.Width = 81;
             // 
             // prenomEtudiant
             // 
+            this.prenomEtudiant.FillWeight = 79.24527F;
             this.prenomEtudiant.HeaderText = "Prénom";
             this.prenomEtudiant.Name = "prenomEtudiant";
             this.prenomEtudiant.ReadOnly = true;
-            this.prenomEtudiant.Width = 110;
+            this.prenomEtudiant.Width = 207;
+            // 
+            // Classe
+            // 
+            this.Classe.FillWeight = 189.7202F;
+            this.Classe.HeaderText = "Classe";
+            this.Classe.Name = "Classe";
+            this.Classe.ReadOnly = true;
+            this.Classe.Width = 495;
             // 
             // dgvListeEtudiant
             // 
@@ -220,8 +236,9 @@
             // 
             // bFermer
             // 
+            this.bFermer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.bFermer.BackColor = System.Drawing.Color.LightCyan;
-            this.bFermer.Location = new System.Drawing.Point(899, 52);
+            this.bFermer.Location = new System.Drawing.Point(897, 93);
             this.bFermer.Name = "bFermer";
             this.bFermer.Size = new System.Drawing.Size(115, 40);
             this.bFermer.TabIndex = 13;
@@ -235,6 +252,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1024, 529);
+            this.Controls.Add(this.bQuitter);
             this.Controls.Add(this.bFermer);
             this.Controls.Add(this.PanelInterieur);
             this.Controls.Add(this.PanelMenu);
@@ -248,7 +266,6 @@
             this.Text = "Liste des Etudiants";
             this.PanelLogo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).EndInit();
-            this.PanelQuitter.ResumeLayout(false);
             this.PanelMenu.ResumeLayout(false);
             this.PanelMenu.PerformLayout();
             this.msGlobal.ResumeLayout(false);
@@ -276,14 +293,15 @@
         private System.Windows.Forms.DataGridView dgvListeEtudiant;
         //   private P2022_Appli_AdministrationDataSetTableAdapters.etudiantTableAdapter etudiantTableAdapter;
         private System.Windows.Forms.Button bFermer;
-    //    private System.Windows.Forms.DataGridViewTextBoxColumn nometudiantDataGridViewTextBoxColumn;
-   //     private System.Windows.Forms.DataGridViewTextBoxColumn prenometudiantDataGridViewTextBoxColumn;
-    //    private System.Windows.Forms.DataGridViewTextBoxColumn idclasseDataGridViewTextBoxColumn;
+        //    private System.Windows.Forms.DataGridViewTextBoxColumn nometudiantDataGridViewTextBoxColumn;
+        //     private System.Windows.Forms.DataGridViewTextBoxColumn prenometudiantDataGridViewTextBoxColumn;
+        //    private System.Windows.Forms.DataGridViewTextBoxColumn idclasseDataGridViewTextBoxColumn;
         private System.Windows.Forms.ToolStripMenuItem gestionClasseToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem listeDesClassesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ajouterUneClasseToolStripMenuItem;
         private System.Windows.Forms.DataGridView dgvEtudiants;
         private System.Windows.Forms.DataGridViewTextBoxColumn nomEtudiant;
         private System.Windows.Forms.DataGridViewTextBoxColumn prenomEtudiant;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Classe;
     }
 }

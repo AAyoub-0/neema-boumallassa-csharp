@@ -18,18 +18,19 @@ namespace _2SIO_FSI_Adminstration.WinForm
         Utilisateur x;
         public ListeEtudiant(Utilisateur utiConnecte)
         {
-        InitializeComponent();
+            InitializeComponent();
             x = utiConnecte;
             Form formAccueil = new Accueil(x);
             formAccueil.Close();
-            
-        
+
+
+
             //Contrôle de la connexion
-            string Conx = "Server=localhost;Port=5432;Database=2SIO_Appli_Administration;User Id=postgres;Password=012356;";
+            string Conx = "Server=localhost;Port=5432;Database=2SIO_Appli_Administration;User Id=postgres;Password=Y@utub32112;";
             NpgsqlConnection MyCnx = new NpgsqlConnection(Conx);
             MyCnx = new NpgsqlConnection(Conx);
             MyCnx.Open();
-            string select = "SELECT * FROM etudiant";
+            string select = "SELECT * FROM etudiant e inner join classe c ON e.idclasse  = c.idclasse ";
             NpgsqlCommand MyCmd = new NpgsqlCommand(select, MyCnx);
             NpgsqlDataReader dr = MyCmd.ExecuteReader();
 
@@ -40,19 +41,20 @@ namespace _2SIO_FSI_Adminstration.WinForm
                 int idEtudiant = dr.GetInt32(0);
                 string nomEtudiant = dr.GetString(1);
                 string prenomEtudiant = dr.GetString(2);
+                string classeEtudiant = dr.GetString(5);
 
-                Etudiant unEtudiant = new Etudiant(idEtudiant, nomEtudiant, prenomEtudiant);
+                Etudiant unEtudiant = new Etudiant(idEtudiant, nomEtudiant, prenomEtudiant, classeEtudiant);
                 mesEtudiant.Add(unEtudiant);
 
             }
 
             //Affichage dans le dataGridView
-            foreach(Etudiant etu in mesEtudiant)
+            foreach (Etudiant etu in mesEtudiant)
             {
-                dgvEtudiants.Rows.Add(etu.NomEtudiant,etu.PrenomEtudiant);
+                dgvEtudiants.Rows.Add(etu.NomEtudiant, etu.PrenomEtudiant, etu.ClasseEtudiant);
 
             }
-         
+
 
             MyCnx.Close();
 
@@ -65,12 +67,15 @@ namespace _2SIO_FSI_Adminstration.WinForm
 
         private void bFermer_Click(object sender, EventArgs e)
         {
+            Form formAccueil = new Accueil(x);
             this.Close();
+            formAccueil.Show();
         }
 
         private void listeDesEtudiantsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form formListeEtudiant = new ListeEtudiant(x);
+            this.Close();
             formListeEtudiant.Show();
         }
 
@@ -83,7 +88,13 @@ namespace _2SIO_FSI_Adminstration.WinForm
         private void accueilToolStripMenuItem2_Click(object sender, EventArgs e)
         {
             Form formAccueil = new Accueil(x);
+            this.Close();
             formAccueil.Show();
+        }
+
+        private void dgvEtudiants_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
