@@ -28,19 +28,33 @@ namespace _2SIO_FSI_Adminstration
         private void bQuitter_Click(object sender, EventArgs e)
         {
                 Application.Exit();
+
         }
 
         private void listeDesEtudiantsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form formListeEtudiant = new ListeEtudiant(uti);
+            this.Close();
             formListeEtudiant.Show();
         }
 
         private void ajouterUnEtudiantToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form formAjouterEtudiant = new AjoutEtudiant();
+            Form formListeEtudiant = new ListeEtudiant(uti);
+            this.Close();
+            formListeEtudiant.Show();
             formAjouterEtudiant.Show();
         }
 
+        private void PanelInterieur_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void Accueil_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -50,7 +50,6 @@
             this.msGlobal.SuspendLayout();
             this.PanelLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
-            this.PanelQuitter.SuspendLayout();
             this.PanelInterieur.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -99,7 +98,7 @@
             // ajouterUnEtudiantToolStripMenuItem
             // 
             this.ajouterUnEtudiantToolStripMenuItem.Name = "ajouterUnEtudiantToolStripMenuItem";
-            this.ajouterUnEtudiantToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ajouterUnEtudiantToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
             this.ajouterUnEtudiantToolStripMenuItem.Text = "Ajouter un étudiant";
             this.ajouterUnEtudiantToolStripMenuItem.Click += new System.EventHandler(this.ajouterUnEtudiantToolStripMenuItem_Click);
             // 
@@ -144,7 +143,6 @@
             // 
             // PanelQuitter
             // 
-            this.PanelQuitter.Controls.Add(this.bQuitter);
             this.PanelQuitter.Location = new System.Drawing.Point(899, 0);
             this.PanelQuitter.Name = "PanelQuitter";
             this.PanelQuitter.Size = new System.Drawing.Size(123, 46);
@@ -152,10 +150,13 @@
             // 
             // bQuitter
             // 
+            this.bQuitter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.bQuitter.AutoSize = true;
+            this.bQuitter.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.bQuitter.BackColor = System.Drawing.Color.LightCyan;
-            this.bQuitter.Location = new System.Drawing.Point(4, 3);
+            this.bQuitter.Location = new System.Drawing.Point(907, 35);
             this.bQuitter.Name = "bQuitter";
-            this.bQuitter.Size = new System.Drawing.Size(115, 40);
+            this.bQuitter.Size = new System.Drawing.Size(109, 35);
             this.bQuitter.TabIndex = 7;
             this.bQuitter.Text = "QUITTER";
             this.bQuitter.UseVisualStyleBackColor = false;
@@ -163,12 +164,14 @@
             // 
             // PanelInterieur
             // 
+            this.PanelInterieur.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.PanelInterieur.Controls.Add(this.label1);
             this.PanelInterieur.Controls.Add(this.lBien);
             this.PanelInterieur.Location = new System.Drawing.Point(87, 35);
             this.PanelInterieur.Name = "PanelInterieur";
             this.PanelInterieur.Size = new System.Drawing.Size(806, 482);
             this.PanelInterieur.TabIndex = 11;
+            this.PanelInterieur.Paint += new System.Windows.Forms.PaintEventHandler(this.PanelInterieur_Paint);
             // 
             // label1
             // 
@@ -183,7 +186,7 @@
             // lBien
             // 
             this.lBien.AutoSize = true;
-            this.lBien.ForeColor = System.Drawing.Color.DarkOliveGreen;
+            this.lBien.ForeColor = System.Drawing.Color.DarkGreen;
             this.lBien.Location = new System.Drawing.Point(340, 16);
             this.lBien.Name = "lBien";
             this.lBien.Size = new System.Drawing.Size(153, 25);
@@ -192,10 +195,12 @@
             // 
             // tbUserConnecte
             // 
+            this.tbUserConnecte.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.tbUserConnecte.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tbUserConnecte.ForeColor = System.Drawing.Color.Blue;
-            this.tbUserConnecte.Location = new System.Drawing.Point(909, 68);
+            this.tbUserConnecte.Location = new System.Drawing.Point(907, 88);
             this.tbUserConnecte.Name = "tbUserConnecte";
+            this.tbUserConnecte.ReadOnly = true;
             this.tbUserConnecte.Size = new System.Drawing.Size(100, 31);
             this.tbUserConnecte.TabIndex = 12;
             // 
@@ -203,10 +208,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1024, 529);
-            this.Controls.Add(this.tbUserConnecte);
+            this.Controls.Add(this.bQuitter);
             this.Controls.Add(this.PanelInterieur);
+            this.Controls.Add(this.tbUserConnecte);
             this.Controls.Add(this.PanelQuitter);
             this.Controls.Add(this.PanelLogo);
             this.Controls.Add(this.PanelMenu);
@@ -216,13 +223,13 @@
             this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "Accueil";
             this.Text = "ACCUEIL";
+            this.Load += new System.EventHandler(this.Accueil_Load);
             this.PanelMenu.ResumeLayout(false);
             this.PanelMenu.PerformLayout();
             this.msGlobal.ResumeLayout(false);
             this.msGlobal.PerformLayout();
             this.PanelLogo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).EndInit();
-            this.PanelQuitter.ResumeLayout(false);
             this.PanelInterieur.ResumeLayout(false);
             this.PanelInterieur.PerformLayout();
             this.ResumeLayout(false);

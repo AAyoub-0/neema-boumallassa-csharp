@@ -16,11 +16,12 @@ namespace _2SIO_FSI_Adminstration.Classe
         private string _user = "postgres";
         private string _password = "012356";
 
-        public NpgsqlConnection Database()
+      /*  public NpgsqlConnection Database()
         {
             string Conx = $"Server={_server};Port={_port};Database={_dbname};User Id={_user};Password={_password};";
             NpgsqlConnection MyCnx = new NpgsqlConnection(Conx);
             return MyCnx;
         }
+      */
     }
 }
