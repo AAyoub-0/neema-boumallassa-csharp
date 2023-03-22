@@ -85,3 +85,14 @@ C:\Users\Ayoub\Desktop\BTS\Projet-C#\2SIO_FSI_Adminstration\2SIO_FSI_Adminstrati
 C:\Users\Ayoub\Desktop\BTS\Projet-C#\2SIO_FSI_Adminstration\2SIO_FSI_Adminstration\obj\Debug\2SIO_FSI_Adminstration.exe
 C:\Users\Ayoub\Desktop\BTS\Projet-C#\2SIO_FSI_Adminstration\2SIO_FSI_Adminstration\obj\Debug\2SIO_FSI_Adminstration.pdb
 C:\Users\Ayoub\Desktop\BTS\Projet-C#\2SIO_FSI_Adminstration\2SIO_FSI_Adminstration\bin\Debug\Poppins-Regular.ttf
+C:\Users\Ayoub\Desktop\BTS\Projet-C#\projet-csharp\neema-boumallassa-csharp\2SIO_FSI_Adminstration\obj\Debug\2SIO_FSI_Adminstration.csproj.AssemblyReference.cache
+C:\Users\Ayoub\Desktop\BTS\Projet-C#\projet-csharp\neema-boumallassa-csharp\2SIO_FSI_Adminstration\obj\Debug\2SIO_FSI_Adminstration.csproj.SuggestedBindingRedirects.cache
+C:\Users\Ayoub\Desktop\BTS\Projet-C#\projet-csharp\neema-boumallassa-csharp\2SIO_FSI_Adminstration\obj\Debug\_2SIO_FSI_Adminstration.Accueil.resources
+C:\Users\Ayoub\Desktop\BTS\Projet-C#\projet-csharp\neema-boumallassa-csharp\2SIO_FSI_Adminstration\obj\Debug\_2SIO_FSI_Adminstration.Properties.Resources.resources
+C:\Users\Ayoub\Desktop\BTS\Projet-C#\projet-csharp\neema-boumallassa-csharp\2SIO_FSI_Adminstration\obj\Debug\_2SIO_FSI_Adminstration.WinForm.AjoutEtudiant.resources
+C:\Users\Ayoub\Desktop\BTS\Projet-C#\projet-csharp\neema-boumallassa-csharp\2SIO_FSI_Adminstration\obj\Debug\_2SIO_FSI_Adminstration.WinForm.Connexion.resources
+C:\Users\Ayoub\Desktop\BTS\Projet-C#\projet-csharp\neema-boumallassa-csharp\2SIO_FSI_Adminstration\obj\Debug\_2SIO_FSI_Adminstration.WinForm.ListeEtudiant.resources
+C:\Users\Ayoub\Desktop\BTS\Projet-C#\projet-csharp\neema-boumallassa-csharp\2SIO_FSI_Adminstration\obj\Debug\2SIO_FSI_Adminstration.csproj.GenerateResource.cache
+C:\Users\Ayoub\Desktop\BTS\Projet-C#\projet-csharp\neema-boumallassa-csharp\2SIO_FSI_Adminstration\obj\Debug\2SIO_FSI_Adminstration.csproj.CoreCompileInputs.cache
+C:\Users\Ayoub\Desktop\BTS\Projet-C#\projet-csharp\neema-boumallassa-csharp\2SIO_FSI_Adminstration\obj\Debug\2SIO_FSI_Adminstration.exe
+C:\Users\Ayoub\Desktop\BTS\Projet-C#\projet-csharp\neema-boumallassa-csharp\2SIO_FSI_Adminstration\obj\Debug\2SIO_FSI_Adminstration.pdb
