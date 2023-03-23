@@ -44,18 +44,16 @@
             this.ajouterUneClasseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.PanelInterieur = new System.Windows.Forms.Panel();
             this.dgvEtudiants = new System.Windows.Forms.DataGridView();
+            this.bFermer = new System.Windows.Forms.Button();
             this.nomEtudiant = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.prenomEtudiant = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Classe = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvListeEtudiant = new System.Windows.Forms.DataGridView();
-            this.bFermer = new System.Windows.Forms.Button();
             this.PanelLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
             this.PanelMenu.SuspendLayout();
             this.msGlobal.SuspendLayout();
             this.PanelInterieur.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEtudiants)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvListeEtudiant)).BeginInit();
             this.SuspendLayout();
             // 
             // PanelLogo
@@ -169,7 +167,6 @@
             // PanelInterieur
             // 
             this.PanelInterieur.Controls.Add(this.dgvEtudiants);
-            this.PanelInterieur.Controls.Add(this.dgvListeEtudiant);
             this.PanelInterieur.Location = new System.Drawing.Point(87, 35);
             this.PanelInterieur.Name = "PanelInterieur";
             this.PanelInterieur.Size = new System.Drawing.Size(806, 482);
@@ -179,9 +176,7 @@
             // 
             this.dgvEtudiants.AllowUserToAddRows = false;
             this.dgvEtudiants.AllowUserToDeleteRows = false;
-            this.dgvEtudiants.AllowUserToOrderColumns = true;
-            this.dgvEtudiants.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvEtudiants.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvEtudiants.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvEtudiants.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.nomEtudiant,
@@ -198,42 +193,6 @@
             this.dgvEtudiants.TabIndex = 1;
             this.dgvEtudiants.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEtudiants_CellContentClick);
             // 
-            // nomEtudiant
-            // 
-            this.nomEtudiant.FillWeight = 31.03448F;
-            this.nomEtudiant.HeaderText = "Nom";
-            this.nomEtudiant.Name = "nomEtudiant";
-            this.nomEtudiant.ReadOnly = true;
-            this.nomEtudiant.Width = 81;
-            // 
-            // prenomEtudiant
-            // 
-            this.prenomEtudiant.FillWeight = 79.24527F;
-            this.prenomEtudiant.HeaderText = "Prénom";
-            this.prenomEtudiant.Name = "prenomEtudiant";
-            this.prenomEtudiant.ReadOnly = true;
-            this.prenomEtudiant.Width = 207;
-            // 
-            // Classe
-            // 
-            this.Classe.FillWeight = 189.7202F;
-            this.Classe.HeaderText = "Classe";
-            this.Classe.Name = "Classe";
-            this.Classe.ReadOnly = true;
-            this.Classe.Width = 495;
-            // 
-            // dgvListeEtudiant
-            // 
-            this.dgvListeEtudiant.AllowUserToOrderColumns = true;
-            this.dgvListeEtudiant.BackgroundColor = System.Drawing.Color.White;
-            this.dgvListeEtudiant.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvListeEtudiant.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvListeEtudiant.GridColor = System.Drawing.Color.SkyBlue;
-            this.dgvListeEtudiant.Location = new System.Drawing.Point(0, 0);
-            this.dgvListeEtudiant.Name = "dgvListeEtudiant";
-            this.dgvListeEtudiant.Size = new System.Drawing.Size(806, 482);
-            this.dgvListeEtudiant.TabIndex = 0;
-            // 
             // bFermer
             // 
             this.bFermer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -245,6 +204,33 @@
             this.bFermer.Text = "FERMER";
             this.bFermer.UseVisualStyleBackColor = false;
             this.bFermer.Click += new System.EventHandler(this.bFermer_Click);
+            // 
+            // nomEtudiant
+            // 
+            this.nomEtudiant.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.nomEtudiant.FillWeight = 50F;
+            this.nomEtudiant.HeaderText = "Nom";
+            this.nomEtudiant.Name = "nomEtudiant";
+            this.nomEtudiant.ReadOnly = true;
+            this.nomEtudiant.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // prenomEtudiant
+            // 
+            this.prenomEtudiant.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.prenomEtudiant.FillWeight = 50F;
+            this.prenomEtudiant.HeaderText = "Prénom";
+            this.prenomEtudiant.Name = "prenomEtudiant";
+            this.prenomEtudiant.ReadOnly = true;
+            this.prenomEtudiant.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // Classe
+            // 
+            this.Classe.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Classe.FillWeight = 150F;
+            this.Classe.HeaderText = "Classe";
+            this.Classe.Name = "Classe";
+            this.Classe.ReadOnly = true;
+            this.Classe.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // ListeEtudiant
             // 
@@ -272,7 +258,6 @@
             this.msGlobal.PerformLayout();
             this.PanelInterieur.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvEtudiants)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvListeEtudiant)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -290,7 +275,6 @@
         private System.Windows.Forms.ToolStripMenuItem listeDesEtudiantsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ajouterUnEtudiantToolStripMenuItem;
         private System.Windows.Forms.Panel PanelInterieur;
-        private System.Windows.Forms.DataGridView dgvListeEtudiant;
         //   private P2022_Appli_AdministrationDataSetTableAdapters.etudiantTableAdapter etudiantTableAdapter;
         private System.Windows.Forms.Button bFermer;
         //    private System.Windows.Forms.DataGridViewTextBoxColumn nometudiantDataGridViewTextBoxColumn;
