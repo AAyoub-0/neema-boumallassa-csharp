@@ -56,27 +56,30 @@
             // PanelMenu
             // 
             this.PanelMenu.Controls.Add(this.msGlobal);
-            this.PanelMenu.Location = new System.Drawing.Point(87, 0);
+            this.PanelMenu.Location = new System.Drawing.Point(64, 0);
+            this.PanelMenu.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.PanelMenu.Name = "PanelMenu";
-            this.PanelMenu.Size = new System.Drawing.Size(806, 29);
+            this.PanelMenu.Size = new System.Drawing.Size(591, 25);
             this.PanelMenu.TabIndex = 7;
             // 
             // msGlobal
             // 
+            this.msGlobal.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.msGlobal.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.accueilToolStripMenuItem2,
             this.gestionEtudiantToolStripMenuItem1,
             this.gestionClasseToolStripMenuItem});
             this.msGlobal.Location = new System.Drawing.Point(0, 0);
             this.msGlobal.Name = "msGlobal";
-            this.msGlobal.Size = new System.Drawing.Size(806, 24);
+            this.msGlobal.Padding = new System.Windows.Forms.Padding(6, 2, 0, 2);
+            this.msGlobal.Size = new System.Drawing.Size(591, 30);
             this.msGlobal.TabIndex = 0;
             this.msGlobal.Text = "Menu";
             // 
             // accueilToolStripMenuItem2
             // 
             this.accueilToolStripMenuItem2.Name = "accueilToolStripMenuItem2";
-            this.accueilToolStripMenuItem2.Size = new System.Drawing.Size(58, 20);
+            this.accueilToolStripMenuItem2.Size = new System.Drawing.Size(71, 26);
             this.accueilToolStripMenuItem2.Text = "Accueil";
             // 
             // gestionEtudiantToolStripMenuItem1
@@ -85,20 +88,20 @@
             this.listeDesEtudiantsToolStripMenuItem,
             this.ajouterUnEtudiantToolStripMenuItem});
             this.gestionEtudiantToolStripMenuItem1.Name = "gestionEtudiantToolStripMenuItem1";
-            this.gestionEtudiantToolStripMenuItem1.Size = new System.Drawing.Size(106, 20);
+            this.gestionEtudiantToolStripMenuItem1.Size = new System.Drawing.Size(132, 26);
             this.gestionEtudiantToolStripMenuItem1.Text = "Gestion Etudiant";
             // 
             // listeDesEtudiantsToolStripMenuItem
             // 
             this.listeDesEtudiantsToolStripMenuItem.Name = "listeDesEtudiantsToolStripMenuItem";
-            this.listeDesEtudiantsToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.listeDesEtudiantsToolStripMenuItem.Size = new System.Drawing.Size(220, 26);
             this.listeDesEtudiantsToolStripMenuItem.Text = "Liste des étudiants";
             this.listeDesEtudiantsToolStripMenuItem.Click += new System.EventHandler(this.listeDesEtudiantsToolStripMenuItem_Click);
             // 
             // ajouterUnEtudiantToolStripMenuItem
             // 
             this.ajouterUnEtudiantToolStripMenuItem.Name = "ajouterUnEtudiantToolStripMenuItem";
-            this.ajouterUnEtudiantToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.ajouterUnEtudiantToolStripMenuItem.Size = new System.Drawing.Size(220, 26);
             this.ajouterUnEtudiantToolStripMenuItem.Text = "Ajouter un étudiant";
             this.ajouterUnEtudiantToolStripMenuItem.Click += new System.EventHandler(this.ajouterUnEtudiantToolStripMenuItem_Click);
             // 
@@ -108,44 +111,47 @@
             this.listeDesClassesToolStripMenuItem,
             this.ajouterUneClasseToolStripMenuItem});
             this.gestionClasseToolStripMenuItem.Name = "gestionClasseToolStripMenuItem";
-            this.gestionClasseToolStripMenuItem.Size = new System.Drawing.Size(93, 20);
+            this.gestionClasseToolStripMenuItem.Size = new System.Drawing.Size(116, 26);
             this.gestionClasseToolStripMenuItem.Text = "Gestion classe";
             // 
             // listeDesClassesToolStripMenuItem
             // 
             this.listeDesClassesToolStripMenuItem.Name = "listeDesClassesToolStripMenuItem";
-            this.listeDesClassesToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.listeDesClassesToolStripMenuItem.Size = new System.Drawing.Size(212, 26);
             this.listeDesClassesToolStripMenuItem.Text = "Liste des classes";
             // 
             // ajouterUneClasseToolStripMenuItem
             // 
             this.ajouterUneClasseToolStripMenuItem.Name = "ajouterUneClasseToolStripMenuItem";
-            this.ajouterUneClasseToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.ajouterUneClasseToolStripMenuItem.Size = new System.Drawing.Size(212, 26);
             this.ajouterUneClasseToolStripMenuItem.Text = "Ajouter une classe";
             // 
             // PanelLogo
             // 
             this.PanelLogo.Controls.Add(this.pbLogo);
             this.PanelLogo.Location = new System.Drawing.Point(0, 0);
+            this.PanelLogo.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.PanelLogo.Name = "PanelLogo";
-            this.PanelLogo.Size = new System.Drawing.Size(84, 90);
+            this.PanelLogo.Size = new System.Drawing.Size(62, 78);
             this.PanelLogo.TabIndex = 9;
             // 
             // pbLogo
             // 
             this.pbLogo.Image = ((System.Drawing.Image)(resources.GetObject("pbLogo.Image")));
-            this.pbLogo.Location = new System.Drawing.Point(3, 0);
+            this.pbLogo.Location = new System.Drawing.Point(2, 0);
+            this.pbLogo.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.pbLogo.Name = "pbLogo";
-            this.pbLogo.Size = new System.Drawing.Size(78, 87);
+            this.pbLogo.Size = new System.Drawing.Size(57, 76);
             this.pbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbLogo.TabIndex = 0;
             this.pbLogo.TabStop = false;
             // 
             // PanelQuitter
             // 
-            this.PanelQuitter.Location = new System.Drawing.Point(899, 0);
+            this.PanelQuitter.Location = new System.Drawing.Point(659, 0);
+            this.PanelQuitter.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.PanelQuitter.Name = "PanelQuitter";
-            this.PanelQuitter.Size = new System.Drawing.Size(123, 46);
+            this.PanelQuitter.Size = new System.Drawing.Size(90, 40);
             this.PanelQuitter.TabIndex = 10;
             // 
             // bQuitter
@@ -153,10 +159,12 @@
             this.bQuitter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.bQuitter.AutoSize = true;
             this.bQuitter.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.bQuitter.BackColor = System.Drawing.Color.LightCyan;
-            this.bQuitter.Location = new System.Drawing.Point(907, 35);
+            this.bQuitter.BackColor = System.Drawing.Color.ForestGreen;
+            this.bQuitter.ForeColor = System.Drawing.Color.Transparent;
+            this.bQuitter.Location = new System.Drawing.Point(640, 30);
+            this.bQuitter.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.bQuitter.Name = "bQuitter";
-            this.bQuitter.Size = new System.Drawing.Size(109, 35);
+            this.bQuitter.Size = new System.Drawing.Size(106, 37);
             this.bQuitter.TabIndex = 7;
             this.bQuitter.Text = "QUITTER";
             this.bQuitter.UseVisualStyleBackColor = false;
@@ -167,9 +175,10 @@
             this.PanelInterieur.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.PanelInterieur.Controls.Add(this.label1);
             this.PanelInterieur.Controls.Add(this.lBien);
-            this.PanelInterieur.Location = new System.Drawing.Point(87, 35);
+            this.PanelInterieur.Location = new System.Drawing.Point(64, 30);
+            this.PanelInterieur.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.PanelInterieur.Name = "PanelInterieur";
-            this.PanelInterieur.Size = new System.Drawing.Size(806, 482);
+            this.PanelInterieur.Size = new System.Drawing.Size(591, 420);
             this.PanelInterieur.TabIndex = 11;
             this.PanelInterieur.Paint += new System.Windows.Forms.PaintEventHandler(this.PanelInterieur_Paint);
             // 
@@ -177,9 +186,10 @@
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.Color.DarkGreen;
-            this.label1.Location = new System.Drawing.Point(138, 77);
+            this.label1.Location = new System.Drawing.Point(101, 67);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(522, 25);
+            this.label1.Size = new System.Drawing.Size(422, 27);
             this.label1.TabIndex = 14;
             this.label1.Text = "Application de gestion administration de l\'école FSI";
             // 
@@ -187,9 +197,10 @@
             // 
             this.lBien.AutoSize = true;
             this.lBien.ForeColor = System.Drawing.Color.DarkGreen;
-            this.lBien.Location = new System.Drawing.Point(340, 16);
+            this.lBien.Location = new System.Drawing.Point(249, 14);
+            this.lBien.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lBien.Name = "lBien";
-            this.lBien.Size = new System.Drawing.Size(153, 25);
+            this.lBien.Size = new System.Drawing.Size(138, 27);
             this.lBien.TabIndex = 13;
             this.lBien.Text = "BIENVENUE !!";
             // 
@@ -198,29 +209,30 @@
             this.tbUserConnecte.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.tbUserConnecte.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tbUserConnecte.ForeColor = System.Drawing.Color.Blue;
-            this.tbUserConnecte.Location = new System.Drawing.Point(907, 88);
+            this.tbUserConnecte.Location = new System.Drawing.Point(665, 77);
+            this.tbUserConnecte.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.tbUserConnecte.Name = "tbUserConnecte";
             this.tbUserConnecte.ReadOnly = true;
-            this.tbUserConnecte.Size = new System.Drawing.Size(100, 31);
+            this.tbUserConnecte.Size = new System.Drawing.Size(73, 27);
             this.tbUserConnecte.TabIndex = 12;
             // 
             // Accueil
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 27F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1024, 529);
+            this.ClientSize = new System.Drawing.Size(751, 461);
             this.Controls.Add(this.bQuitter);
             this.Controls.Add(this.PanelInterieur);
             this.Controls.Add(this.tbUserConnecte);
             this.Controls.Add(this.PanelQuitter);
             this.Controls.Add(this.PanelLogo);
             this.Controls.Add(this.PanelMenu);
-            this.Font = new System.Drawing.Font("MV Boli", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
-            this.ForeColor = System.Drawing.Color.Blue;
+            this.Font = new System.Drawing.Font("Arial Narrow", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ForeColor = System.Drawing.Color.BlueViolet;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
-            this.Margin = new System.Windows.Forms.Padding(6);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Accueil";
             this.Text = "ACCUEIL";
             this.Load += new System.EventHandler(this.Accueil_Load);

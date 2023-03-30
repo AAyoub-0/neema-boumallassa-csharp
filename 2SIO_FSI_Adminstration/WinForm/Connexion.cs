@@ -50,7 +50,7 @@ namespace _2SIO_FSI_Adminstration.WinForm
             string loginUti = tbLogin.Text;
             string mdpUti = tbMdp.Text;
             //Contrôle de la connexion
-            string Conx = "Server=localhost;Port=5432;Database=2SIO_Appli_Administration;User Id=postgres;Password=Y@utub32112;";
+            string Conx = "Server=localhost;Port=5432;Database=2SIO_Appli_Administration;User Id=postgres;Password=012356;";
             NpgsqlConnection MyCnx = new NpgsqlConnection(Conx);
             MyCnx = new NpgsqlConnection(Conx);
             MyCnx.Open();
@@ -89,6 +89,9 @@ namespace _2SIO_FSI_Adminstration.WinForm
 
         }
 
-        
+        private void panel4_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
