@@ -110,15 +110,14 @@
             this.gestionClasseToolStripMenuItem});
             this.msGlobal.Location = new System.Drawing.Point(0, 0);
             this.msGlobal.Name = "msGlobal";
-            this.msGlobal.Padding = new System.Windows.Forms.Padding(6, 2, 0, 2);
-            this.msGlobal.Size = new System.Drawing.Size(699, 30);
+            this.msGlobal.Size = new System.Drawing.Size(699, 28);
             this.msGlobal.TabIndex = 0;
             this.msGlobal.Text = "Menu";
             // 
             // accueilToolStripMenuItem2
             // 
             this.accueilToolStripMenuItem2.Name = "accueilToolStripMenuItem2";
-            this.accueilToolStripMenuItem2.Size = new System.Drawing.Size(71, 26);
+            this.accueilToolStripMenuItem2.Size = new System.Drawing.Size(71, 24);
             this.accueilToolStripMenuItem2.Text = "Accueil";
             this.accueilToolStripMenuItem2.Click += new System.EventHandler(this.accueilToolStripMenuItem2_Click);
             // 
@@ -128,7 +127,7 @@
             this.listeDesEtudiantsToolStripMenuItem,
             this.ajouterUnEtudiantToolStripMenuItem});
             this.gestionEtudiantToolStripMenuItem1.Name = "gestionEtudiantToolStripMenuItem1";
-            this.gestionEtudiantToolStripMenuItem1.Size = new System.Drawing.Size(132, 26);
+            this.gestionEtudiantToolStripMenuItem1.Size = new System.Drawing.Size(132, 24);
             this.gestionEtudiantToolStripMenuItem1.Text = "Gestion Etudiant";
             // 
             // listeDesEtudiantsToolStripMenuItem
@@ -151,7 +150,7 @@
             this.listeDesClassesToolStripMenuItem,
             this.ajouterUneClasseToolStripMenuItem});
             this.gestionClasseToolStripMenuItem.Name = "gestionClasseToolStripMenuItem";
-            this.gestionClasseToolStripMenuItem.Size = new System.Drawing.Size(116, 26);
+            this.gestionClasseToolStripMenuItem.Size = new System.Drawing.Size(116, 24);
             this.gestionClasseToolStripMenuItem.Text = "Gestion classe";
             // 
             // listeDesClassesToolStripMenuItem
@@ -270,7 +269,7 @@
             this.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.Black;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "ListeEtudiant";
             this.Text = "Liste des Etudiants";
             this.PanelLogo.ResumeLayout(false);
