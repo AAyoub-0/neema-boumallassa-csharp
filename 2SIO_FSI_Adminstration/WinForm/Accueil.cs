@@ -56,5 +56,22 @@ namespace _2SIO_FSI_Adminstration
         {
 
         }
+
+        private void listeDesClassesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form formListeCours = new ListeCours();
+            formListeCours.Show();
+        }
+
+        private void ajouterUnCoursToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form formAjoutCours = new AjoutCours();
+            formAjoutCours.Show();
+        }
     }
 }

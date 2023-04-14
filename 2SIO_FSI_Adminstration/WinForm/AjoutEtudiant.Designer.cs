@@ -48,7 +48,7 @@
             this.lNom.ForeColor = System.Drawing.Color.DarkGreen;
             this.lNom.Location = new System.Drawing.Point(42, 54);
             this.lNom.Name = "lNom";
-            this.lNom.Size = new System.Drawing.Size(56, 25);
+            this.lNom.Size = new System.Drawing.Size(50, 22);
             this.lNom.TabIndex = 0;
             this.lNom.Text = "Nom";
             // 
@@ -58,7 +58,7 @@
             this.lPrenom.ForeColor = System.Drawing.Color.DarkGreen;
             this.lPrenom.Location = new System.Drawing.Point(13, 114);
             this.lPrenom.Name = "lPrenom";
-            this.lPrenom.Size = new System.Drawing.Size(85, 25);
+            this.lPrenom.Size = new System.Drawing.Size(77, 22);
             this.lPrenom.TabIndex = 1;
             this.lPrenom.Text = "Prénom";
             // 
@@ -68,7 +68,7 @@
             this.label1.ForeColor = System.Drawing.Color.DarkGreen;
             this.label1.Location = new System.Drawing.Point(30, 176);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(68, 25);
+            this.label1.Size = new System.Drawing.Size(69, 22);
             this.label1.TabIndex = 2;
             this.label1.Text = "Classe";
             // 
@@ -76,14 +76,14 @@
             // 
             this.tbAENom.Location = new System.Drawing.Point(123, 41);
             this.tbAENom.Name = "tbAENom";
-            this.tbAENom.Size = new System.Drawing.Size(190, 38);
+            this.tbAENom.Size = new System.Drawing.Size(165, 29);
             this.tbAENom.TabIndex = 3;
             // 
             // tbAEPrenom
             // 
             this.tbAEPrenom.Location = new System.Drawing.Point(123, 101);
             this.tbAEPrenom.Name = "tbAEPrenom";
-            this.tbAEPrenom.Size = new System.Drawing.Size(190, 38);
+            this.tbAEPrenom.Size = new System.Drawing.Size(165, 29);
             this.tbAEPrenom.TabIndex = 4;
             // 
             // bouton1
@@ -137,12 +137,12 @@
             this.cbClasse.FormattingEnabled = true;
             this.cbClasse.Location = new System.Drawing.Point(123, 173);
             this.cbClasse.Name = "cbClasse";
-            this.cbClasse.Size = new System.Drawing.Size(190, 33);
+            this.cbClasse.Size = new System.Drawing.Size(165, 29);
             this.cbClasse.TabIndex = 10;
             // 
             // AjoutEtudiant
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(346, 393);
@@ -159,9 +159,10 @@
             this.Font = new System.Drawing.Font("MV Boli", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.ForeColor = System.Drawing.Color.Blue;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
-            this.Margin = new System.Windows.Forms.Padding(6);
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "AjoutEtudiant";
             this.Text = "AjouterEtudiant";
+            this.Load += new System.EventHandler(this.AjoutEtudiant_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

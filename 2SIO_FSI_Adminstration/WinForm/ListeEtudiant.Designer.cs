@@ -59,7 +59,8 @@
             // PanelLogo
             // 
             this.PanelLogo.Controls.Add(this.pbLogo);
-            this.PanelLogo.Location = new System.Drawing.Point(0, 0);
+            this.PanelLogo.Location = new System.Drawing.Point(-1, 0);
+            this.PanelLogo.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.PanelLogo.Name = "PanelLogo";
             this.PanelLogo.Size = new System.Drawing.Size(84, 90);
             this.PanelLogo.TabIndex = 10;
@@ -67,7 +68,8 @@
             // pbLogo
             // 
             this.pbLogo.Image = ((System.Drawing.Image)(resources.GetObject("pbLogo.Image")));
-            this.pbLogo.Location = new System.Drawing.Point(3, 0);
+            this.pbLogo.Location = new System.Drawing.Point(4, 0);
+            this.pbLogo.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.pbLogo.Name = "pbLogo";
             this.pbLogo.Size = new System.Drawing.Size(78, 87);
             this.pbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -109,9 +111,10 @@
             this.gestionClasseToolStripMenuItem});
             this.msGlobal.Location = new System.Drawing.Point(0, 0);
             this.msGlobal.Name = "msGlobal";
-            this.msGlobal.Size = new System.Drawing.Size(806, 24);
+            this.msGlobal.Size = new System.Drawing.Size(699, 24);
             this.msGlobal.TabIndex = 0;
             this.msGlobal.Text = "Menu";
+            this.msGlobal.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.msGlobal_ItemClicked);
             // 
             // accueilToolStripMenuItem2
             // 
@@ -234,7 +237,7 @@
             // 
             // ListeEtudiant
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1024, 529);

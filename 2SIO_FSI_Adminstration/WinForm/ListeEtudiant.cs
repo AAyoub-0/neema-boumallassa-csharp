@@ -96,5 +96,10 @@ namespace _2SIO_FSI_Adminstration.WinForm
         {
 
         }
+
+        private void msGlobal_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
     }
 }
