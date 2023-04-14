@@ -40,6 +40,7 @@ namespace _2SIO_FSI_Adminstration.WinForm
         private void bouton3_Click(object sender, EventArgs e)
         {
 
+
             string a = tbAENom.Text;
             string z = tbAEPrenom.Text;
             int id_classe = 0;
@@ -80,11 +81,7 @@ namespace _2SIO_FSI_Adminstration.WinForm
                     if (maConnexion != null) maConnexion.Close();
                 }
             }
-            private void reInitialisation()
-            {
-                  tbAENom.Text = "";
-                  tbAEPrenom.Text = "";
-            }
+           
 
         }
 
