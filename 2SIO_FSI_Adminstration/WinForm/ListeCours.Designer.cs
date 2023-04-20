@@ -33,6 +33,8 @@ namespace _2SIO_FSI_Adminstration.WinForm
             this.PanelLogo = new System.Windows.Forms.Panel();
             this.pbLogo = new System.Windows.Forms.PictureBox();
             this.dgvEtudiants = new System.Windows.Forms.DataGridView();
+            this.nomEtudiant = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.prenomEtudiant = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.msGlobal = new System.Windows.Forms.MenuStrip();
             this.accueilToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.gestionEtudiantToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -41,8 +43,6 @@ namespace _2SIO_FSI_Adminstration.WinForm
             this.gestionClasseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listeDesClassesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ajouterUneClasseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.nomEtudiant = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.prenomEtudiant = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PanelLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEtudiants)).BeginInit();
@@ -90,6 +90,24 @@ namespace _2SIO_FSI_Adminstration.WinForm
             this.dgvEtudiants.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvEtudiants.Size = new System.Drawing.Size(660, 363);
             this.dgvEtudiants.TabIndex = 12;
+            // 
+            // nomEtudiant
+            // 
+            this.nomEtudiant.FillWeight = 31.03448F;
+            this.nomEtudiant.HeaderText = "classe";
+            this.nomEtudiant.MinimumWidth = 6;
+            this.nomEtudiant.Name = "nomEtudiant";
+            this.nomEtudiant.ReadOnly = true;
+            this.nomEtudiant.Width = 81;
+            // 
+            // prenomEtudiant
+            // 
+            this.prenomEtudiant.FillWeight = 79.24527F;
+            this.prenomEtudiant.HeaderText = "Cours";
+            this.prenomEtudiant.MinimumWidth = 6;
+            this.prenomEtudiant.Name = "prenomEtudiant";
+            this.prenomEtudiant.ReadOnly = true;
+            this.prenomEtudiant.Width = 207;
             // 
             // msGlobal
             // 
@@ -143,32 +161,14 @@ namespace _2SIO_FSI_Adminstration.WinForm
             // listeDesClassesToolStripMenuItem
             // 
             this.listeDesClassesToolStripMenuItem.Name = "listeDesClassesToolStripMenuItem";
-            this.listeDesClassesToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.listeDesClassesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.listeDesClassesToolStripMenuItem.Text = "Liste des classes";
             // 
             // ajouterUneClasseToolStripMenuItem
             // 
             this.ajouterUneClasseToolStripMenuItem.Name = "ajouterUneClasseToolStripMenuItem";
-            this.ajouterUneClasseToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.ajouterUneClasseToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.ajouterUneClasseToolStripMenuItem.Text = "Ajouter une classe";
-            // 
-            // nomEtudiant
-            // 
-            this.nomEtudiant.FillWeight = 31.03448F;
-            this.nomEtudiant.HeaderText = "classe";
-            this.nomEtudiant.MinimumWidth = 6;
-            this.nomEtudiant.Name = "nomEtudiant";
-            this.nomEtudiant.ReadOnly = true;
-            this.nomEtudiant.Width = 81;
-            // 
-            // prenomEtudiant
-            // 
-            this.prenomEtudiant.FillWeight = 79.24527F;
-            this.prenomEtudiant.HeaderText = "Cours";
-            this.prenomEtudiant.MinimumWidth = 6;
-            this.prenomEtudiant.Name = "prenomEtudiant";
-            this.prenomEtudiant.ReadOnly = true;
-            this.prenomEtudiant.Width = 207;
             // 
             // ListeCours
             // 

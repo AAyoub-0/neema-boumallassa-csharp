@@ -1,13 +1,6 @@
 ﻿using _2SIO_FSI_Adminstration.Classe;
 using _2SIO_FSI_Adminstration.WinForm;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace _2SIO_FSI_Adminstration
@@ -17,7 +10,7 @@ namespace _2SIO_FSI_Adminstration
         Utilisateur uti;
         public Accueil(Utilisateur utiConnecte)
         {
-           
+
             InitializeComponent();
             uti = utiConnecte;
             Form formConnexion = new Connexion();
@@ -27,7 +20,7 @@ namespace _2SIO_FSI_Adminstration
 
         private void bQuitter_Click(object sender, EventArgs e)
         {
-                Application.Exit();
+            Application.Exit();
 
         }
 

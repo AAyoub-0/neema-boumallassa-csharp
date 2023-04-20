@@ -3,10 +3,10 @@ using Npgsql;
 using NpgsqlTypes;
 using System;
 using System.Drawing;
-using System.Windows.Forms;
 using System.Drawing.Text;
 using System.IO;
 using System.Runtime.InteropServices;
+using System.Windows.Forms;
 
 namespace _2SIO_FSI_Adminstration.WinForm
 {
@@ -16,10 +16,10 @@ namespace _2SIO_FSI_Adminstration.WinForm
         {
             InitializeComponent();
         }
-        
+
         private void Connexion_Load(object sender, EventArgs e)
         {
-          
+
         }
 
         private void AddFontFromMemory()
@@ -28,15 +28,15 @@ namespace _2SIO_FSI_Adminstration.WinForm
 
             Stream fontStream = GetType().Assembly.GetManifestResourceStream("Poppins-Regular.ttf");
             IntPtr data = Marshal.AllocCoTaskMem((int)fontStream.Length);
-          
+
             byte[] fontdata = new byte[fontStream.Length];
-            
-            fontStream.Read(fontdata,0,(int)fontStream.Length);
+
+            fontStream.Read(fontdata, 0, (int)fontStream.Length);
             Marshal.Copy(fontdata, 0, data, (int)fontStream.Length);
-            
+
             myFont.AddMemoryFont(data, (int)fontStream.Length);
             fontStream.Close();
-            
+
             Marshal.FreeCoTaskMem(data);
 
             foreach (Control control in Controls)
@@ -44,7 +44,7 @@ namespace _2SIO_FSI_Adminstration.WinForm
                 control.Font = new Font(myFont.Families[0], 15, FontStyle.Regular);
             }
         }
-        
+
         private void bConnexion_Click(object sender, EventArgs e)
         {
             string loginUti = tbLogin.Text;
@@ -58,13 +58,13 @@ namespace _2SIO_FSI_Adminstration.WinForm
             NpgsqlCommand MyCmd = new NpgsqlCommand(select, MyCnx);
             MyCmd.Parameters.Add(new NpgsqlParameter("login", NpgsqlDbType.Varchar)).Value = loginUti;
 
-            NpgsqlDataReader dr = MyCmd.ExecuteReader();
+            NpgsqlDataReader ajouter = MyCmd.ExecuteReader();
 
-            if (dr.Read())
+            if (ajouter.Read())
             {
                 // Création de l'objet utilisateur
-                Utilisateur uti = new Utilisateur(dr.GetInt32(0), dr.GetString(1), dr.GetString(2));
-                if(uti.MdpUtilisateur == mdpUti)
+                Utilisateur uti = new Utilisateur(ajouter.GetInt32(0), ajouter.GetString(1), ajouter.GetString(2));
+                if (uti.MdpUtilisateur == mdpUti)
                 {
                     //Ouverture du formulaire d'accueil si la connexion est ok
                     this.Hide();
@@ -76,7 +76,7 @@ namespace _2SIO_FSI_Adminstration.WinForm
                     MessageBox.Show($"Erreur d'authentification mot de passe incorrect");
                     tbMdp.Text = "";
                 }
-                
+
             }
             else
             {
@@ -89,6 +89,6 @@ namespace _2SIO_FSI_Adminstration.WinForm
 
         }
 
-        
+
     }
 }

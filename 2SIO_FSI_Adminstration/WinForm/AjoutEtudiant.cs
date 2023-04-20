@@ -1,14 +1,8 @@
-﻿using _2SIO_FSI_Adminstration.Classe;
-using Npgsql;
+﻿using Npgsql;
 using NpgsqlTypes;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace _2SIO_FSI_Adminstration.WinForm
@@ -41,11 +35,11 @@ namespace _2SIO_FSI_Adminstration.WinForm
         {
 
 
-            string a = tbAENom.Text;
-            string z = tbAEPrenom.Text;
+            string nom = tbAENom.Text;
+            string prenom = tbAEPrenom.Text;
             int id_classe = 0;
 
-            if (a != null && z != null && cbClasse.SelectedItem != null)
+            if (nom != null && prenom != null && cbClasse.SelectedItem != null)
             {
                 try
                 {
@@ -63,8 +57,8 @@ namespace _2SIO_FSI_Adminstration.WinForm
                     maConnexion.Open();
                     string pufff = "INSERT INTO etudiant (nomEtudiant, prenometudiant, idClasse) values ( :1, :2, :3);";
                     commande = new NpgsqlCommand(pufff, maConnexion);
-                    commande.Parameters.Add(new NpgsqlParameter("1", NpgsqlDbType.Varchar)).Value = a;
-                    commande.Parameters.Add(new NpgsqlParameter("2", NpgsqlDbType.Varchar)).Value = z;
+                    commande.Parameters.Add(new NpgsqlParameter("1", NpgsqlDbType.Varchar)).Value = nom;
+                    commande.Parameters.Add(new NpgsqlParameter("2", NpgsqlDbType.Varchar)).Value = prenom;
                     commande.Parameters.Add(new NpgsqlParameter("3", NpgsqlDbType.Integer)).Value = id_classe;
                     commande.Prepare();
                     commande.CommandType = CommandType.Text;
@@ -81,7 +75,7 @@ namespace _2SIO_FSI_Adminstration.WinForm
                     if (maConnexion != null) maConnexion.Close();
                 }
             }
-           
+
 
         }
 
@@ -92,12 +86,12 @@ namespace _2SIO_FSI_Adminstration.WinForm
             classeConnexion = new NpgsqlConnection(connexion_classe);
             classeConnexion.Open();
             classe_query = new NpgsqlCommand(select_classe, classeConnexion);
-            NpgsqlDataReader dr = classe_query.ExecuteReader();
+            NpgsqlDataReader ajouter = classe_query.ExecuteReader();
 
 
-            while (dr.Read())
+            while (ajouter.Read())
             {
-                classes.Add(new Classe.Classe(dr.GetInt32(0), dr.GetString(1)));
+                classes.Add(new Classe.Classe(ajouter.GetInt32(0), ajouter.GetString(1)));
 
             }
 

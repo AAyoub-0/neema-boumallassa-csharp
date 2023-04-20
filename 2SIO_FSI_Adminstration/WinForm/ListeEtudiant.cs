@@ -1,14 +1,7 @@
 ﻿using _2SIO_FSI_Adminstration.Classe;
 using Npgsql;
-using NpgsqlTypes;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace _2SIO_FSI_Adminstration.WinForm
@@ -28,20 +21,19 @@ namespace _2SIO_FSI_Adminstration.WinForm
             //Contrôle de la connexion
             string Conx = "Server=localhost;Port=5432;Database=2SIO_Appli_Administration;User Id=postgres;Password=Y@utub32112;";
             NpgsqlConnection MyCnx = new NpgsqlConnection(Conx);
-            MyCnx = new NpgsqlConnection(Conx);
             MyCnx.Open();
             string select = "SELECT * FROM etudiant e inner join classe c ON e.idclasse  = c.idclasse ";
             NpgsqlCommand MyCmd = new NpgsqlCommand(select, MyCnx);
-            NpgsqlDataReader dr = MyCmd.ExecuteReader();
+            NpgsqlDataReader ajouter = MyCmd.ExecuteReader();
 
             List<Etudiant> mesEtudiant = new List<Etudiant>();
-            while (dr.Read())
+            while (ajouter.Read())
             {
                 // Création de l'objet etudiant
-                int idEtudiant = dr.GetInt32(0);
-                string nomEtudiant = dr.GetString(1);
-                string prenomEtudiant = dr.GetString(2);
-                string classeEtudiant = dr.GetString(5);
+                int idEtudiant = ajouter.GetInt32(0);
+                string nomEtudiant = ajouter.GetString(1);
+                string prenomEtudiant = ajouter.GetString(2);
+                string classeEtudiant = ajouter.GetString(5);
 
                 Etudiant unEtudiant = new Etudiant(idEtudiant, nomEtudiant, prenomEtudiant, classeEtudiant);
                 mesEtudiant.Add(unEtudiant);

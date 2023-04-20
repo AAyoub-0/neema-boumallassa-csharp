@@ -1,14 +1,8 @@
-﻿using _2SIO_FSI_Adminstration.Classe;
-using Npgsql;
+﻿using Npgsql;
 using NpgsqlTypes;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace _2SIO_FSI_Adminstration.WinForm
@@ -42,37 +36,37 @@ namespace _2SIO_FSI_Adminstration.WinForm
 
         private void AjoutCours_Load(object sender, EventArgs e)
         {
-                string connexion_classe = "Server=localhost;Port=5432;Database=2SIO_Appli_Administration;User Id=postgres;Password=Y@utub32112;";
-                string select_classe = "SELECT * from classe;";
-                classeConnexion = new NpgsqlConnection(connexion_classe);
-                classeConnexion.Open();
-                classe_query = new NpgsqlCommand(select_classe, classeConnexion);
-                NpgsqlDataReader dr = classe_query.ExecuteReader();
+            string connexion_classe = "Server=localhost;Port=5432;Database=2SIO_Appli_Administration;User Id=postgres;Password=Y@utub32112;";
+            string select_classe = "SELECT * from classe;";
+            classeConnexion = new NpgsqlConnection(connexion_classe);
+            classeConnexion.Open();
+            classe_query = new NpgsqlCommand(select_classe, classeConnexion);
+            NpgsqlDataReader ajouter = classe_query.ExecuteReader();
 
 
-                while (dr.Read())
-                {
-                    classes.Add(new Classe.Classe(dr.GetInt32(0), dr.GetString(1)));
+            while (ajouter.Read())
+            {
+                classes.Add(new Classe.Classe(ajouter.GetInt32(0), ajouter.GetString(1)));
 
-                }
+            }
 
-                foreach (var classe in classes)
-                {
-                    cbClasse.Items.Add(classe.lib);
-                }
+            foreach (var classe in classes)
+            {
+                cbClasse.Items.Add(classe.lib);
+            }
 
-            
+
         }
 
         private void bouton2_Click(object sender, EventArgs e)
         {
 
-            string a = tbAENom.Text;
-            string z = tbAEPrenom.Text;
+            string nom = tbAENom.Text;
+            string premon = tbAEPrenom.Text;
             int id_classe = 0;
 
 
-            if (a != null && z != null)
+            if (nom != null && premon != null)
             {
                 try
                 {
@@ -90,13 +84,13 @@ namespace _2SIO_FSI_Adminstration.WinForm
                     string select_classe = "SELECT * from classe;";
                     commande = new NpgsqlCommand(pufff, maConnexion);
                     classe_query = new NpgsqlCommand(select_classe, maConnexion);
-                    commande.Parameters.Add(new NpgsqlParameter("1", NpgsqlDbType.Varchar)).Value = a;
-                    commande.Parameters.Add(new NpgsqlParameter("2", NpgsqlDbType.Varchar)).Value = z;
+                    commande.Parameters.Add(new NpgsqlParameter("1", NpgsqlDbType.Varchar)).Value = nom;
+                    commande.Parameters.Add(new NpgsqlParameter("2", NpgsqlDbType.Varchar)).Value = premon;
                     commande.Parameters.Add(new NpgsqlParameter("3", NpgsqlDbType.Integer)).Value = id_classe;
                     commande.Prepare();
                     commande.CommandType = CommandType.Text;
                     commande.ExecuteNonQuery();
-                    NpgsqlDataReader dr = classe_query.ExecuteReader();
+                    NpgsqlDataReader ajouter = classe_query.ExecuteReader();
 
 
                     MessageBox.Show("Cours ajouté");
