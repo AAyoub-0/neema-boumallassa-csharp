@@ -38,6 +38,9 @@
             this.gestionClasseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listeDesClassesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ajouterUneClasseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gestionCoursToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ajouterUnCoursToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.PanelLogo = new System.Windows.Forms.Panel();
             this.pbLogo = new System.Windows.Forms.PictureBox();
             this.PanelQuitter = new System.Windows.Forms.Panel();
@@ -46,9 +49,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lBien = new System.Windows.Forms.Label();
             this.tbUserConnecte = new System.Windows.Forms.TextBox();
-            this.gestionCoursToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.lToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ajouterUnCoursToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.modifierCoursToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.PanelMenu.SuspendLayout();
             this.msGlobal.SuspendLayout();
             this.PanelLogo.SuspendLayout();
@@ -73,7 +74,7 @@
             this.gestionCoursToolStripMenuItem});
             this.msGlobal.Location = new System.Drawing.Point(0, 0);
             this.msGlobal.Name = "msGlobal";
-            this.msGlobal.Size = new System.Drawing.Size(591, 24);
+            this.msGlobal.Size = new System.Drawing.Size(806, 24);
             this.msGlobal.TabIndex = 0;
             this.msGlobal.Text = "Menu";
             // 
@@ -118,15 +119,39 @@
             // listeDesClassesToolStripMenuItem
             // 
             this.listeDesClassesToolStripMenuItem.Name = "listeDesClassesToolStripMenuItem";
-            this.listeDesClassesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.listeDesClassesToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
             this.listeDesClassesToolStripMenuItem.Text = "Liste des classes";
             this.listeDesClassesToolStripMenuItem.Click += new System.EventHandler(this.listeDesClassesToolStripMenuItem_Click);
             // 
             // ajouterUneClasseToolStripMenuItem
             // 
             this.ajouterUneClasseToolStripMenuItem.Name = "ajouterUneClasseToolStripMenuItem";
-            this.ajouterUneClasseToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ajouterUneClasseToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
             this.ajouterUneClasseToolStripMenuItem.Text = "Ajouter une classe";
+            // 
+            // gestionCoursToolStripMenuItem
+            // 
+            this.gestionCoursToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.lToolStripMenuItem,
+            this.ajouterUnCoursToolStripMenuItem,
+            this.modifierCoursToolStripMenuItem});
+            this.gestionCoursToolStripMenuItem.Name = "gestionCoursToolStripMenuItem";
+            this.gestionCoursToolStripMenuItem.Size = new System.Drawing.Size(91, 20);
+            this.gestionCoursToolStripMenuItem.Text = "Gestion cours";
+            // 
+            // lToolStripMenuItem
+            // 
+            this.lToolStripMenuItem.Name = "lToolStripMenuItem";
+            this.lToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.lToolStripMenuItem.Text = "Liste des cours";
+            this.lToolStripMenuItem.Click += new System.EventHandler(this.lToolStripMenuItem_Click);
+            // 
+            // ajouterUnCoursToolStripMenuItem
+            // 
+            this.ajouterUnCoursToolStripMenuItem.Name = "ajouterUnCoursToolStripMenuItem";
+            this.ajouterUnCoursToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ajouterUnCoursToolStripMenuItem.Text = "Ajouter un cours";
+            this.ajouterUnCoursToolStripMenuItem.Click += new System.EventHandler(this.ajouterUnCoursToolStripMenuItem_Click);
             // 
             // PanelLogo
             // 
@@ -160,10 +185,10 @@
             this.bQuitter.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.bQuitter.BackColor = System.Drawing.Color.ForestGreen;
             this.bQuitter.ForeColor = System.Drawing.Color.Transparent;
-            this.bQuitter.Location = new System.Drawing.Point(661, 30);
+            this.bQuitter.Location = new System.Drawing.Point(637, 30);
             this.bQuitter.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.bQuitter.Name = "bQuitter";
-            this.bQuitter.Size = new System.Drawing.Size(85, 33);
+            this.bQuitter.Size = new System.Drawing.Size(109, 35);
             this.bQuitter.TabIndex = 7;
             this.bQuitter.Text = "QUITTER";
             this.bQuitter.UseVisualStyleBackColor = false;
@@ -186,7 +211,7 @@
             this.label1.ForeColor = System.Drawing.Color.DarkGreen;
             this.label1.Location = new System.Drawing.Point(138, 77);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(357, 23);
+            this.label1.Size = new System.Drawing.Size(522, 25);
             this.label1.TabIndex = 14;
             this.label1.Text = "Application de gestion administration de l\'école FSI";
             // 
@@ -196,7 +221,7 @@
             this.lBien.ForeColor = System.Drawing.Color.DarkGreen;
             this.lBien.Location = new System.Drawing.Point(340, 16);
             this.lBien.Name = "lBien";
-            this.lBien.Size = new System.Drawing.Size(109, 23);
+            this.lBien.Size = new System.Drawing.Size(153, 25);
             this.lBien.TabIndex = 13;
             this.lBien.Text = "BIENVENUE !!";
             // 
@@ -208,35 +233,19 @@
             this.tbUserConnecte.Location = new System.Drawing.Point(907, 88);
             this.tbUserConnecte.Name = "tbUserConnecte";
             this.tbUserConnecte.ReadOnly = true;
-            this.tbUserConnecte.Size = new System.Drawing.Size(73, 22);
+            this.tbUserConnecte.Size = new System.Drawing.Size(73, 31);
             this.tbUserConnecte.TabIndex = 12;
             // 
-            // gestionCoursToolStripMenuItem
+            // modifierCoursToolStripMenuItem
             // 
-            this.gestionCoursToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.lToolStripMenuItem,
-            this.ajouterUnCoursToolStripMenuItem});
-            this.gestionCoursToolStripMenuItem.Name = "gestionCoursToolStripMenuItem";
-            this.gestionCoursToolStripMenuItem.Size = new System.Drawing.Size(91, 20);
-            this.gestionCoursToolStripMenuItem.Text = "Gestion cours";
-            // 
-            // lToolStripMenuItem
-            // 
-            this.lToolStripMenuItem.Name = "lToolStripMenuItem";
-            this.lToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.lToolStripMenuItem.Text = "Liste des cours";
-            this.lToolStripMenuItem.Click += new System.EventHandler(this.lToolStripMenuItem_Click);
-            // 
-            // ajouterUnCoursToolStripMenuItem
-            // 
-            this.ajouterUnCoursToolStripMenuItem.Name = "ajouterUnCoursToolStripMenuItem";
-            this.ajouterUnCoursToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.ajouterUnCoursToolStripMenuItem.Text = "Ajouter un cours";
-            this.ajouterUnCoursToolStripMenuItem.Click += new System.EventHandler(this.ajouterUnCoursToolStripMenuItem_Click);
+            this.modifierCoursToolStripMenuItem.Name = "modifierCoursToolStripMenuItem";
+            this.modifierCoursToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.modifierCoursToolStripMenuItem.Text = "Modifier cours";
+            this.modifierCoursToolStripMenuItem.Click += new System.EventHandler(this.modifierCoursToolStripMenuItem_Click);
             // 
             // Accueil
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 22F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
@@ -292,6 +301,7 @@
         private System.Windows.Forms.ToolStripMenuItem gestionCoursToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem lToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ajouterUnCoursToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem modifierCoursToolStripMenuItem;
     }
 }
 

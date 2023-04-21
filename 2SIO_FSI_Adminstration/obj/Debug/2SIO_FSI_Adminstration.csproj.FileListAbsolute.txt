@@ -220,3 +220,4 @@ C:\Users\florian\source\repos\neema-boumallassa-csharp\neema-boumallassa-csharp\
 C:\Users\florian\source\repos\neema-boumallassa-csharp\neema-boumallassa-csharp\neema-boumallassa-csharp\2SIO_FSI_Adminstration\bin\Debug\Microsoft.Owin.xml
 C:\Users\florian\source\repos\neema-boumallassa-csharp\neema-boumallassa-csharp\neema-boumallassa-csharp\2SIO_FSI_Adminstration\obj\Debug\_2SIO_FSI_Adminstration.WinForm.AjoutCours.resources
 C:\Users\florian\source\repos\neema-boumallassa-csharp\neema-boumallassa-csharp\neema-boumallassa-csharp\2SIO_FSI_Adminstration\obj\Debug\_2SIO_FSI_Adminstration.WinForm.ListeCours.resources
+C:\Users\florian\source\repos\neema-boumallassa-csharp\neema-boumallassa-csharp\neema-boumallassa-csharp\2SIO_FSI_Adminstration\obj\Debug\_2SIO_FSI_Adminstration.WinForm.Modifier_Cours.resources

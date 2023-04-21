@@ -66,5 +66,11 @@ namespace _2SIO_FSI_Adminstration
             Form formAjoutCours = new AjoutCours();
             formAjoutCours.Show();
         }
+
+        private void modifierCoursToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form formModifier_Cours = new Modifier_Cours();
+            formModifier_Cours.Show();
+        }
     }
 }

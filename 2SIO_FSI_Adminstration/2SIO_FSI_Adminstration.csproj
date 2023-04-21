@@ -100,10 +100,7 @@
   <ItemGroup>
     <Compile Include="Classe\Classe.cs" />
     <Compile Include="Classe\Cours.cs" />
-
-	  
-	  
-<Compile Include="Classe\Database.cs" />
+    <Compile Include="Classe\Database.cs" />
     <Compile Include="Classe\Etudiant.cs" />
     <Compile Include="WinForm\Accueil.cs">
       <SubType>Form</SubType>
@@ -144,6 +141,12 @@
     <Compile Include="WinForm\ListeEtudiant.Designer.cs">
       <DependentUpon>ListeEtudiant.cs</DependentUpon>
     </Compile>
+    <Compile Include="WinForm\Modifier_Cours.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForm\Modifier_Cours.Designer.cs">
+      <DependentUpon>Modifier_Cours.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="WinForm\Accueil.resx">
       <DependentUpon>Accueil.cs</DependentUpon>
     </EmbeddedResource>
@@ -171,6 +174,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="WinForm\ListeEtudiant.resx">
       <DependentUpon>ListeEtudiant.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForm\Modifier_Cours.resx">
+      <DependentUpon>Modifier_Cours.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
