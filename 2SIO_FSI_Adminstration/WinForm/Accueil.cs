@@ -18,6 +18,8 @@ namespace _2SIO_FSI_Adminstration
             tbUserConnecte.Text = uti.LoginUtilisateur;
         }
 
+        public Accueil() { }
+
         private void bQuitter_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -52,7 +54,9 @@ namespace _2SIO_FSI_Adminstration
 
         private void listeDesClassesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            Form formListeClasse = new ListeClasse();
+            this.Close();
+            formListeClasse.Show();
         }
 
         private void lToolStripMenuItem_Click(object sender, EventArgs e)
@@ -71,6 +75,12 @@ namespace _2SIO_FSI_Adminstration
         {
             Form formModifier_Cours = new Modifier_Cours();
             formModifier_Cours.Show();
+        }
+
+        private void ajouterUneClasseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form formAjoutClasse = new AjoutClasse(this);
+            formAjoutClasse.Show();
         }
     }
 }

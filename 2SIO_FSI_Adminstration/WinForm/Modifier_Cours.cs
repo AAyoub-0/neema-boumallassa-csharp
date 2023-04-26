@@ -22,12 +22,6 @@ namespace _2SIO_FSI_Adminstration.WinForm
         public Modifier_Cours()
         {
             InitializeComponent();
-        }
-
-       
-
-        private void Modifier_Cours_Load(object sender, EventArgs e)
-        {
             string connexion_classe = "Server=localhost;Port=5432;Database=2SIO_Appli_Administration;User Id=postgres;Password=Y@utub32112;";
             string select_classe = "SELECT * from Cours;";
             classeConnexion = new NpgsqlConnection(connexion_classe);
@@ -39,14 +33,14 @@ namespace _2SIO_FSI_Adminstration.WinForm
 
             while (ajouter.Read())
             {
+
                 mesCours.Add(new Cours(ajouter.GetInt32(0), ajouter.GetString(1), ajouter.GetString(2)));
 
             }
-            
-            foreach (var Cours in mesCours)
+
+            foreach (var cours in mesCours)
             {
-                
-                cbCours.Items.Add(Cours.libelleCours);
+                cbCours.Items.Add(cours.libelleCours);
 
 
 

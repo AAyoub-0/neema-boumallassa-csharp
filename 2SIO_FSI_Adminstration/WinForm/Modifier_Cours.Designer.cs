@@ -138,7 +138,7 @@ namespace _2SIO_FSI_Adminstration.WinForm
             this.tbAENom.Name = "tbAENom";
             this.tbAENom.Size = new System.Drawing.Size(221, 20);
             this.tbAENom.TabIndex = 13;
-            this.tbAENom.TextChanged += new System.EventHandler(this.Modifier_Cours_Load);
+          
             // 
             // tbAEPrenom
             // 
@@ -225,7 +225,6 @@ namespace _2SIO_FSI_Adminstration.WinForm
             this.Controls.Add(this.pictureBox1);
             this.Name = "Modifier_Cours";
             this.Text = "Modifier_Cours";
-            this.Load += new System.EventHandler(this.Modifier_Cours_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.msGlobal.ResumeLayout(false);
             this.msGlobal.PerformLayout();

@@ -19,6 +19,11 @@ namespace _2SIO_FSI_Adminstration.Classe
             this.mdpUtilisateur = mdpUtilisateur;
         }
 
+        public Utilisateur()
+        {
+
+        }
+
         public int IdUtilisateur { get => idUtilisateur; set => idUtilisateur = value; }
         public string LoginUtilisateur { get => loginUtilisateur; set => loginUtilisateur = value; }
         public string MdpUtilisateur { get => mdpUtilisateur; set => mdpUtilisateur = value; }

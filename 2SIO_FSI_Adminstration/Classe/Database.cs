@@ -14,14 +14,14 @@ namespace _2SIO_FSI_Adminstration.Classe
         private string _server = "localhost";
         private string _port = "5432";
         private string _user = "postgres";
-        private string _password = "012356";
+        private string _password = "Y@utub32112";
+        public NpgsqlConnection MyCnx { get; set; }
 
-      /*  public NpgsqlConnection Database()
+        public Database()
         {
             string Conx = $"Server={_server};Port={_port};Database={_dbname};User Id={_user};Password={_password};";
-            NpgsqlConnection MyCnx = new NpgsqlConnection(Conx);
-            return MyCnx;
+            this.MyCnx = new NpgsqlConnection(Conx);
         }
-      */
+
     }
 }

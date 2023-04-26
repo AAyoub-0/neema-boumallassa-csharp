@@ -13,7 +13,7 @@ namespace _2SIO_FSI_Adminstration.WinForm
         {
             InitializeComponent();
 
-
+ 
             string Conx = "Server=localhost;Port=5432;Database=2SIO_Appli_Administration;User Id=postgres;Password=Y@utub32112;";
             NpgsqlConnection MyCnx = new NpgsqlConnection(Conx);
             MyCnx.Open();
