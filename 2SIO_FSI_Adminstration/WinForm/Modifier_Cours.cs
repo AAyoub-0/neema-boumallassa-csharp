@@ -16,86 +16,88 @@ namespace _2SIO_FSI_Adminstration.WinForm
     public partial class Modifier_Cours : Form
     {
         List<Cours> mesCours = new List<Cours>();
-        NpgsqlConnection maConnexion;
-        NpgsqlCommand commande, classe_query;
-        private NpgsqlConnection classeConnexion;
-        public Modifier_Cours()
+        List<Classe.Classe> mesClasse = new List<Classe.Classe>();
+        Cours _cours = new Cours();
+        Classe.Classe _classe = new Classe.Classe();
+        Utilisateur uti;
+        public Modifier_Cours(Utilisateur uti)
         {
             InitializeComponent();
-            string connexion_classe = "Server=localhost;Port=5432;Database=2SIO_Appli_Administration;User Id=postgres;Password=Y@utub32112;";
-            string select_classe = "SELECT * from Cours;";
-            classeConnexion = new NpgsqlConnection(connexion_classe);
-            classeConnexion.Open();
-            classe_query = new NpgsqlCommand(select_classe, classeConnexion);
-            NpgsqlDataReader ajouter = classe_query.ExecuteReader();
+            mesCours = _cours.selectCours();
+            mesClasse = _classe.selectClasse();
+            this.uti = uti;
 
-
-
-            while (ajouter.Read())
-            {
-
-                mesCours.Add(new Cours(ajouter.GetInt32(0), ajouter.GetString(1), ajouter.GetString(2)));
-
-            }
 
             foreach (var cours in mesCours)
             {
                 cbCours.Items.Add(cours.libelleCours);
-
-
-
+            }
+            foreach (var classe in mesClasse)
+            {
+                cbClasse.Items.Add(classe.lib);
             }
         }
-    
+
         private void cbCours_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-            string test2 = "";
-            string test = "";
-
-
-            foreach (var Cours in mesCours)
+            int _id_classe = 0;
+            foreach (var cours in mesCours)
             {
-                if (cbCours.SelectedItem == Cours.libelleCours)
+                if (cbCours.SelectedItem.ToString() == cours.libelleCours)
                 {
-
-                    test2 = Cours.libelleCours;
-                    test = Cours.descriptionCours;
+                    _id_classe = cours.idClasse;
+                    _cours.idCours = cours.idCours;
+                    tbAENom.Text = cours.libelleCours;
+                    tbAEPrenom.Text = cours.descriptionCours;
+                    foreach(var classe in mesClasse)
+                    {
+                        if(_id_classe == classe.id)
+                            cbClasse.SelectedItem = classe.lib;
+                    }
                 }
             }
-
-            tbAENom.Text = test2.ToString();
-            tbAEPrenom.Text = test.ToString();
         }
+
+        private void bouton1_Click(object sender, EventArgs e)
+        {
+            cbCours.SelectedItem = "";
+            cbClasse.SelectedItem = "";
+            tbAENom.Text = "";
+            tbAEPrenom.Text = "";
+        }
+
+        private void bouton3_Click(object sender, EventArgs e)
+        {
+            Form formListCours = new ListeCours(uti);
+            formListCours.Show();
+            this.Close();
+        }
+
         private void bouton2_Click(object sender, EventArgs e)
         {
-
             int id_classe = 0;
-            string nom = tbAENom.Text;
-            string premon = tbAEPrenom.Text;
-            foreach (var Cours in mesCours)
+            string lib = tbAENom.Text;
+            string desc = tbAEPrenom.Text;
+            foreach (var classe in mesClasse)
             {
-                if (cbCours.SelectedItem == Cours.libelleCours)
+                if (cbClasse.SelectedItem.ToString() == classe.lib)
                 {
-
-                    id_classe = Cours.idCours;
+                    id_classe = classe.id;
                 }
             }
+            
+            _cours.libelleCours = lib;
+            _cours.descriptionCours = desc;
+            _cours.idClasse = id_classe;
 
-
-            string connexion = "Server=localhost;Port=5432;Database=2SIO_Appli_Administration;User Id=postgres;Password=Y@utub32112;";
-            maConnexion = new NpgsqlConnection(connexion);
-            maConnexion.Open();
-            string pufff = " UPDATE cours SET libellecours = @FirstName , descriptioncours = @LastName WHERE idcours = :3 ; ";
-            commande = new NpgsqlCommand(pufff, maConnexion);
-            commande.Parameters.Add(new NpgsqlParameter("@FirstName", NpgsqlDbType.Varchar)).Value = nom;
-            commande.Parameters.Add(new NpgsqlParameter("@LastName", NpgsqlDbType.Varchar)).Value = premon;
-            commande.Parameters.Add(new NpgsqlParameter("3", NpgsqlDbType.Integer)).Value = id_classe;
-            commande.Prepare();
-            commande.CommandType = CommandType.Text;
-            commande.ExecuteNonQuery();
-          
-
+            if (_cours.updateCours())
+            {
+                MessageBox.Show("Cours modifié");
+            }
+            else
+            {
+                MessageBox.Show("Erreur lors de la modification");
+            }
         }
     }
 

@@ -1,7 +1,9 @@
-﻿using Npgsql;
+﻿using _2SIO_FSI_Adminstration.Classe;
+using Npgsql;
 using NpgsqlTypes;
 using System;
 using System.Collections.Generic;
+using System.Collections.Immutable;
 using System.Data;
 using System.Windows.Forms;
 
@@ -9,102 +11,85 @@ namespace _2SIO_FSI_Adminstration.WinForm
 {
     public partial class AjoutEtudiant : Form
     {
-        NpgsqlConnection maConnexion, classeConnexion;
-        NpgsqlCommand commande, classe_query;
-        List<Classe.Classe> classes = new List<Classe.Classe>();
-
-
+        private Etudiant etudiant;
+        private Classe.Classe classe;
+        private List<Classe.Classe> classes;
+        private Form formBack;
+        Utilisateur utilisateur;
 
         public AjoutEtudiant()
         {
             InitializeComponent();
         }
-        private void bouton1_Click(object sender, EventArgs e)
+
+        public AjoutEtudiant(Form form, Utilisateur uti)
         {
-            reInitialisation();
-
-
-        }
-        private void reInitialisation()
-        {
-            tbAENom.Text = "";
-            tbAEPrenom.Text = "";
-        }
-
-        private void bouton3_Click(object sender, EventArgs e)
-        {
-
-
-            string nom = tbAENom.Text;
-            string prenom = tbAEPrenom.Text;
-            int id_classe = 0;
-
-            if (nom != null && prenom != null && cbClasse.SelectedItem != null)
-            {
-                try
-                {
-                    foreach (var classe in classes)
-                    {
-                        if (cbClasse.SelectedItem == classe.lib)
-                        {
-                            id_classe = classe.id;
-                        }
-                    }
-
-
-                    string connexion = "Server=localhost;Port=5432;Database=2SIO_Appli_Administration;User Id=postgres;Password=Y@utub32112;";
-                    maConnexion = new NpgsqlConnection(connexion);
-                    maConnexion.Open();
-                    string pufff = "INSERT INTO etudiant (nomEtudiant, prenometudiant, idClasse) values ( :1, :2, :3);";
-                    commande = new NpgsqlCommand(pufff, maConnexion);
-                    commande.Parameters.Add(new NpgsqlParameter("1", NpgsqlDbType.Varchar)).Value = nom;
-                    commande.Parameters.Add(new NpgsqlParameter("2", NpgsqlDbType.Varchar)).Value = prenom;
-                    commande.Parameters.Add(new NpgsqlParameter("3", NpgsqlDbType.Integer)).Value = id_classe;
-                    commande.Prepare();
-                    commande.CommandType = CommandType.Text;
-                    commande.ExecuteNonQuery();
-
-
-
-                    MessageBox.Show("Etudiant ajoutÃ©");
-                    reInitialisation();
-                }
-                finally
-                {
-                    if (commande != null) commande.Dispose();
-                    if (maConnexion != null) maConnexion.Close();
-                }
-            }
-
-
+            InitializeComponent();
+            this.formBack = form;
+            this.utilisateur = uti;
         }
 
         private void AjoutEtudiant_Load(object sender, EventArgs e)
         {
-            string connexion_classe = "Server=localhost;Port=5432;Database=2SIO_Appli_Administration;User Id=postgres;Password=Y@utub32112;";
-            string select_classe = "SELECT * from classe;";
-            classeConnexion = new NpgsqlConnection(connexion_classe);
-            classeConnexion.Open();
-            classe_query = new NpgsqlCommand(select_classe, classeConnexion);
-            NpgsqlDataReader ajouter = classe_query.ExecuteReader();
-
-
-            while (ajouter.Read())
+            classes = new List<Classe.Classe>();
+            etudiant = new Etudiant();
+            classe = new Classe.Classe();
+            classes = classe.selectClasse();
+            foreach (var _classe in classes)
             {
-                classes.Add(new Classe.Classe(ajouter.GetInt32(0), ajouter.GetString(1)));
-
+                cbClasse.Items.Add(_classe.lib);
             }
+            
+        }
 
-            foreach (var classe in classes)
+        private void bouton3_Click(object sender, EventArgs e)
+        {
+            int id_classe = 0;
+
+            if (tbAENom.Text != null && tbAEPrenom.Text != null && cbClasse.SelectedItem != null && tbMail.Text != null && tbTel.Text != null)
             {
-                cbClasse.Items.Add(classe.lib);
-            }
+                foreach (var _classe in classes)
+                {
+                    if(_classe.lib == cbClasse.SelectedItem.ToString())
+                    {
+                        id_classe =_classe.id;
+                    }
+                }
+                etudiant.NomEtudiant = tbAENom.Text;
+                etudiant.PrenomEtudiant = tbAEPrenom.Text;
+                etudiant.MaiEtu = tbMail.Text;
+                etudiant.TelEtu = tbTel.Text;
+                etudiant.IdClasse = id_classe;
 
+                if (etudiant.insertEtudiant())
+                {
+                    MessageBox.Show($"etudiant : {etudiant.NomEtudiant}, {etudiant.PrenomEtudiant} ajouté");
+                }
+                else
+                {
+                    MessageBox.Show($"Erreur lors de l'ajout");
+                }
+            }
+            else
+            {
+                MessageBox.Show($"Champs vides");
+            }
         }
 
         private void bouton2_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void bouton1_Click(object sender, EventArgs e)
+        {
+            reInitialisation();
+        }
+
+        private void reInitialisation()
+        {
+            tbAENom.Text = "";
+            tbAEPrenom.Text = "";
         }
     }
 }

@@ -50,11 +50,11 @@ namespace _2SIO_FSI_Adminstration.WinForm
             string loginUti = tbLogin.Text;
             string mdpUti = tbMdp.Text;
             //Contrôle de la connexion
-            string Conx = "Server=localhost;Port=5432;Database=2SIO_Appli_Administration;User Id=postgres;Password=Y@utub32112;";
+            string Conx = "Server=localhost;Port=5432;Database=2SIO_Appli_Administration_v2;User Id=postgres;Password=012356;";
             NpgsqlConnection MyCnx = new NpgsqlConnection(Conx);
             MyCnx = new NpgsqlConnection(Conx);
             MyCnx.Open();
-            string select = "SELECT * FROM utilisateur where loginutilisateur = :login;";
+            string select = "SELECT * FROM utilisateurs where log_uti = :login;";
             NpgsqlCommand MyCmd = new NpgsqlCommand(select, MyCnx);
             MyCmd.Parameters.Add(new NpgsqlParameter("login", NpgsqlDbType.Varchar)).Value = loginUti;
 

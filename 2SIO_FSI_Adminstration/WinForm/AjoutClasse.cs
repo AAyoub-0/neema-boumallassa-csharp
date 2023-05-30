@@ -1,4 +1,5 @@
-﻿using System;
+﻿using _2SIO_FSI_Adminstration.Classe;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,15 +15,17 @@ namespace _2SIO_FSI_Adminstration.WinForm
     {
         private Classe.Classe classe = new Classe.Classe();
         private Form formBack;
+        Utilisateur utilisateur;
         public AjoutClasse()
         {
             InitializeComponent();
         }
 
-        public AjoutClasse(Form form)
+        public AjoutClasse(Form form, Utilisateur uti)
         {
             InitializeComponent();
             this.formBack = form;
+            this.utilisateur = uti;
         }
 
         private void bouton2_Click(object sender, EventArgs e)
@@ -38,10 +41,6 @@ namespace _2SIO_FSI_Adminstration.WinForm
                     actionMessage.Text = $"Nouvelle classe : {lib_classe} ajoutée";
                     lbAnnuleAjout.Visible = true;
                     lbAnnuleAjout.Enabled = true;
-                    if (formBack is ListeClasse)
-                    {
-                        //refresh la form
-                    }
                 }
                 else
                 {
@@ -86,18 +85,7 @@ namespace _2SIO_FSI_Adminstration.WinForm
 
         private void bouton3_Click(object sender, EventArgs e)
         {
-            if (formBack != null)
-            {
-                this.Close();
-                formBack.Show();
-            }
-            else
-            {
-                Form formAccueil = new Accueil();
-                this.Close();
-                formAccueil.Show();
-            }
-
+            this.Close();
         }
     }
 }

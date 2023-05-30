@@ -2,45 +2,86 @@
 using Npgsql;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolTip;
 
 
 namespace _2SIO_FSI_Adminstration.WinForm
 {
     public partial class ListeCours : Form
     {
-        Utilisateur x;
-        public ListeCours()
+        Utilisateur utilisateur;
+        Cours _cours = new Cours();
+        Classe.Classe _classe = new Classe.Classe();
+        List<Cours> mesCours = new List<Cours>();
+        List<Classe.Classe> mesClasses = new List<Classe.Classe>();
+        public ListeCours(Utilisateur uti)
         {
             InitializeComponent();
-
- 
-            string Conx = "Server=localhost;Port=5432;Database=2SIO_Appli_Administration;User Id=postgres;Password=Y@utub32112;";
-            NpgsqlConnection MyCnx = new NpgsqlConnection(Conx);
-            MyCnx.Open();
-            string select = "select * from cours c inner join classe c2 on c.idclasse   = c2.idclasse  ";
-            NpgsqlCommand MyCmd = new NpgsqlCommand(select, MyCnx);
-            NpgsqlDataReader ajouter = MyCmd.ExecuteReader();
-
-            List<Cours> mesEtudiant = new List<Cours>();
-            while (ajouter.Read())
-            {
-                // Création de l'objet etudiant
-                int idCours = ajouter.GetInt32(0);
-                string libelleCours = ajouter.GetString(1);
-                string descriptionCours = ajouter.GetString(2);
-                string libelleClasse = ajouter.GetString(5);
-
-                Cours unEtudiant = new Cours(idCours, libelleCours, descriptionCours, libelleClasse);
-                mesEtudiant.Add(unEtudiant);
-
-            }
+            mesCours = _cours.selectCours();
+            mesClasses = _classe.selectClasse();
+            this.utilisateur = uti;
 
             //Affichage dans le dataGridView
-            foreach (Cours etu in mesEtudiant)
+            foreach (var cours in mesCours)
             {
-                dgvEtudiants.Rows.Add(etu.libelleClasse, etu.libelleCours);
-
+                foreach(var classe in mesClasses)
+                {
+                    if (cours.idClasse == classe.id) cours.libelleClasse = classe.lib;
+                }
+                dgvEtudiants.Rows.Add(cours.libelleCours, cours.libelleClasse, cours.descriptionCours);
             }
+        }
+
+        private void accueilToolStripMenuItem2_Click(object sender, System.EventArgs e)
+        {
+            Form accueil = new Accueil(utilisateur);
+            accueil.Show();
+            this.Close();
+        }
+
+        private void listeDesEtudiantsToolStripMenuItem_Click(object sender, System.EventArgs e)
+        {
+            Form accueil = new ListeEtudiant(utilisateur);
+            accueil.Show();
+            this.Close();
+        }
+
+        private void ajouterUnEtudiantToolStripMenuItem_Click(object sender, System.EventArgs e)
+        {
+            Form accueil = new AjoutEtudiant();
+            accueil.Show();
+        }
+
+        private void listeDesClassesToolStripMenuItem_Click(object sender, System.EventArgs e)
+        {
+            Form accueil = new ListeClasse(utilisateur);
+            accueil.Show();
+            this.Close();
+        }
+
+        private void ajouterUneClasseToolStripMenuItem_Click(object sender, System.EventArgs e)
+        {
+            Form accueil = new AjoutClasse();
+            accueil.Show();
+        }
+
+        private void listeCoursToolStripMenuItem_Click(object sender, System.EventArgs e)
+        {
+            Form accueil = new ListeCours(utilisateur);
+            accueil.Show();
+            this.Close();
+        }
+
+        private void ajouterCoursToolStripMenuItem_Click(object sender, System.EventArgs e)
+        {
+            Form accueil = new AjoutCours(this, utilisateur);
+            accueil.Show();
+        }
+
+        private void modifierCoursToolStripMenuItem_Click(object sender, System.EventArgs e)
+        {
+            Form accueil = new Modifier_Cours(utilisateur);
+            accueil.Show();
         }
     }
 }

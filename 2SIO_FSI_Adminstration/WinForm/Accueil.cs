@@ -10,7 +10,6 @@ namespace _2SIO_FSI_Adminstration
         Utilisateur uti;
         public Accueil(Utilisateur utiConnecte)
         {
-
             InitializeComponent();
             uti = utiConnecte;
             Form formConnexion = new Connexion();
@@ -42,44 +41,34 @@ namespace _2SIO_FSI_Adminstration
             formAjouterEtudiant.Show();
         }
 
-        private void PanelInterieur_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void Accueil_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void listeDesClassesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form formListeClasse = new ListeClasse();
+            Form formListeClasse = new ListeClasse(uti);
             this.Close();
             formListeClasse.Show();
         }
 
         private void lToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form formListeCours = new ListeCours();
+            Form formListeCours = new ListeCours(uti);
             formListeCours.Show();
         }
 
         private void ajouterUnCoursToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form formAjoutCours = new AjoutCours();
+            Form formAjoutCours = new AjoutCours(this, uti);
             formAjoutCours.Show();
         }
 
         private void modifierCoursToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form formModifier_Cours = new Modifier_Cours();
+            Form formModifier_Cours = new Modifier_Cours(uti);
             formModifier_Cours.Show();
         }
 
         private void ajouterUneClasseToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form formAjoutClasse = new AjoutClasse(this);
+            Form formAjoutClasse = new AjoutClasse(this, uti);
             formAjoutClasse.Show();
         }
     }

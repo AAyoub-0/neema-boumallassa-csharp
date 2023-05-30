@@ -8,48 +8,32 @@ namespace _2SIO_FSI_Adminstration.WinForm
 {
     public partial class ListeEtudiant : Form
     {
-        Utilisateur x;
+        Utilisateur utilisateur;
+        Etudiant _etudiant = new Etudiant();
+        Classe.Classe _classe = new Classe.Classe();
+        List<Etudiant> mesEtudiants = new List<Etudiant>();
+        List<Classe.Classe> mesClasses = new List<Classe.Classe>();
         public ListeEtudiant(Utilisateur utiConnecte)
         {
             InitializeComponent();
-            x = utiConnecte;
-            Form formAccueil = new Accueil(x);
+            utilisateur = utiConnecte;
+            Form formAccueil = new Accueil(utilisateur);
             formAccueil.Close();
-
-
-
-            //Contrôle de la connexion
-            string Conx = "Server=localhost;Port=5432;Database=2SIO_Appli_Administration;User Id=postgres;Password=Y@utub32112;";
-            NpgsqlConnection MyCnx = new NpgsqlConnection(Conx);
-            MyCnx.Open();
-            string select = "SELECT * FROM etudiant e inner join classe c ON e.idclasse  = c.idclasse ";
-            NpgsqlCommand MyCmd = new NpgsqlCommand(select, MyCnx);
-            NpgsqlDataReader ajouter = MyCmd.ExecuteReader();
-
-            List<Etudiant> mesEtudiant = new List<Etudiant>();
-            while (ajouter.Read())
-            {
-                // Création de l'objet etudiant
-                int idEtudiant = ajouter.GetInt32(0);
-                string nomEtudiant = ajouter.GetString(1);
-                string prenomEtudiant = ajouter.GetString(2);
-                string classeEtudiant = ajouter.GetString(5);
-
-                Etudiant unEtudiant = new Etudiant(idEtudiant, nomEtudiant, prenomEtudiant, classeEtudiant);
-                mesEtudiant.Add(unEtudiant);
-
-            }
+            mesEtudiants = _etudiant.selectEtudiant();
+            mesClasses = _classe.selectClasse();
 
             //Affichage dans le dataGridView
-            foreach (Etudiant etu in mesEtudiant)
+            foreach (var etu in mesEtudiants)
             {
+                foreach(var classe in mesClasses)
+                {
+                    if(classe.id == etu.IdClasse)
+                    {
+                        etu.ClasseEtudiant = classe.lib;
+                    }
+                }
                 dgvEtudiants.Rows.Add(etu.NomEtudiant, etu.PrenomEtudiant, etu.ClasseEtudiant);
-
             }
-
-
-            MyCnx.Close();
-
         }
 
         private void bQuitter_Click(object sender, EventArgs e)
@@ -57,41 +41,74 @@ namespace _2SIO_FSI_Adminstration.WinForm
             Application.Exit();
         }
 
-        private void bFermer_Click(object sender, EventArgs e)
+
+        private void dgvEtudiants_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            Form formAccueil = new Accueil(x);
+            if (dgvEtudiants.Rows[e.RowIndex].Cells[0].Value != null)
+            {
+                Etudiant etudiant_clicked = new Etudiant();
+                foreach(var etud in mesEtudiants)
+                {
+                    if(etud.NomEtudiant == dgvEtudiants.Rows[e.RowIndex].Cells[0].Value.ToString())
+                    {
+                        etudiant_clicked = etud;
+                    }
+                }
+                Form formModifEtud = new ModifierEtudiant(etudiant_clicked, utilisateur);
+                formModifEtud.Show();
+            }
+        }
+
+        private void accueilToolStripMenuItem2_Click_1(object sender, EventArgs e)
+        {
+            Form formAccueil = new Accueil(utilisateur);
             this.Close();
             formAccueil.Show();
         }
 
-        private void listeDesEtudiantsToolStripMenuItem_Click(object sender, EventArgs e)
+        private void listeDesEtudiantsToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            Form formListeEtudiant = new ListeEtudiant(x);
+            Form formListeEtudiant = new ListeEtudiant(utilisateur);
             this.Close();
             formListeEtudiant.Show();
         }
 
-        private void ajouterUnEtudiantToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ajouterUnEtudiantToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             Form formAjouterEtudiant = new AjoutEtudiant();
             formAjouterEtudiant.Show();
         }
 
-        private void accueilToolStripMenuItem2_Click(object sender, EventArgs e)
+        private void listeDesClassesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form formAccueil = new Accueil(x);
+            Form formListeEtudiant = new ListeClasse(utilisateur);
             this.Close();
-            formAccueil.Show();
+            formListeEtudiant.Show();
         }
 
-        private void dgvEtudiants_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void ajouterUneClasseToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            Form formListeEtudiant = new AjoutClasse(this, utilisateur);
+            formListeEtudiant.Show();
         }
 
-        private void msGlobal_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        private void listeCoursToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Form formListeEtudiant = new ListeCours(utilisateur);
+            this.Close();
+            formListeEtudiant.Show();
+        }
 
+        private void ajouterCoursToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form formListeEtudiant = new AjoutCours(this, utilisateur);
+            formListeEtudiant.Show();
+        }
+
+        private void modifierCoursToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form formListeEtudiant = new Modifier_Cours(utilisateur);
+            formListeEtudiant.Show();
         }
     }
 }

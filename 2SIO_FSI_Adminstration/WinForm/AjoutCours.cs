@@ -1,4 +1,5 @@
-﻿using Npgsql;
+﻿using _2SIO_FSI_Adminstration.Classe;
+using Npgsql;
 using NpgsqlTypes;
 using System;
 using System.Collections.Generic;
@@ -9,20 +10,25 @@ namespace _2SIO_FSI_Adminstration.WinForm
 {
     public partial class AjoutCours : Form
     {
-        List<Classe.Classe> classes = new List<Classe.Classe>();
-        NpgsqlConnection maConnexion;
-        NpgsqlCommand commande, classe_query;
-        private NpgsqlConnection classeConnexion;
+        List<Classe.Classe> mesClasses = new List<Classe.Classe>();
+        Classe.Classe _classe = new Classe.Classe();
+        Cours _cours = new Cours();
+        Utilisateur utilisateur;
+        Form formBack;
 
-        public AjoutCours()
+        public AjoutCours(Form formBack, Utilisateur uti)
         {
             InitializeComponent();
+            this.utilisateur = uti;
+            this.formBack = formBack;
         }
+
         private void reInitialisation()
         {
             tbAENom.Text = "";
             tbAEPrenom.Text = "";
         }
+
         private void bouton1_Click(object sender, EventArgs e)
         {
             reInitialisation();
@@ -36,71 +42,45 @@ namespace _2SIO_FSI_Adminstration.WinForm
 
         private void AjoutCours_Load(object sender, EventArgs e)
         {
-            string connexion_classe = "Server=localhost;Port=5432;Database=2SIO_Appli_Administration;User Id=postgres;Password=Y@utub32112;";
-            string select_classe = "SELECT * from classe;";
-            classeConnexion = new NpgsqlConnection(connexion_classe);
-            classeConnexion.Open();
-            classe_query = new NpgsqlCommand(select_classe, classeConnexion);
-            NpgsqlDataReader ajouter = classe_query.ExecuteReader();
+            mesClasses = _classe.selectClasse();
 
-
-            while (ajouter.Read())
-            {
-                classes.Add(new Classe.Classe(ajouter.GetInt32(0), ajouter.GetString(1)));
-
-            }
-
-            foreach (var classe in classes)
+            foreach (var classe in mesClasses)
             {
                 cbClasse.Items.Add(classe.lib);
             }
-
-
         }
 
         private void bouton2_Click(object sender, EventArgs e)
         {
 
-            string nom = tbAENom.Text;
-            string premon = tbAEPrenom.Text;
+            string lib = tbAENom.Text;
+            string desc = tbAEPrenom.Text;
             int id_classe = 0;
 
 
-            if (nom != null && premon != null)
+            if (lib != null && desc != null && cbClasse.SelectedItem.ToString() != "")
             {
-                try
+                foreach (var classe in mesClasses)
                 {
-                    foreach (var classe in classes)
+                    if (cbClasse.SelectedItem.ToString() == classe.lib)
                     {
-                        if (cbClasse.SelectedItem == classe.lib)
-                        {
-                            id_classe = classe.id;
-                        }
+                        id_classe = classe.id;
                     }
-                    string connexion = "Server=localhost;Port=5432;Database=2SIO_Appli_Administration;User Id=postgres;Password=Y@utub32112;";
-                    maConnexion = new NpgsqlConnection(connexion);
-                    maConnexion.Open();
-                    string pufff = "INSERT INTO cours (libellecours, descriptioncours, idclasse) values ( :1, :2, :3);";
-                    string select_classe = "SELECT * from classe;";
-                    commande = new NpgsqlCommand(pufff, maConnexion);
-                    classe_query = new NpgsqlCommand(select_classe, maConnexion);
-                    commande.Parameters.Add(new NpgsqlParameter("1", NpgsqlDbType.Varchar)).Value = nom;
-                    commande.Parameters.Add(new NpgsqlParameter("2", NpgsqlDbType.Varchar)).Value = premon;
-                    commande.Parameters.Add(new NpgsqlParameter("3", NpgsqlDbType.Integer)).Value = id_classe;
-                    commande.Prepare();
-                    commande.CommandType = CommandType.Text;
-                    commande.ExecuteNonQuery();
-                    NpgsqlDataReader ajouter = classe_query.ExecuteReader();
+                }
+                _cours.libelleCours = lib;
+                _cours.descriptionCours = desc;
+                _cours.idClasse = id_classe;
 
-
+                if (_cours.insertCours())
+                {
                     MessageBox.Show("Cours ajouté");
                     reInitialisation();
                 }
-                finally
+                else
                 {
-                    if (commande != null) commande.Dispose();
-                    if (maConnexion != null) maConnexion.Close();
+                    MessageBox.Show("Erreur lors de la création du cours");
                 }
+                
             }
         }
     }

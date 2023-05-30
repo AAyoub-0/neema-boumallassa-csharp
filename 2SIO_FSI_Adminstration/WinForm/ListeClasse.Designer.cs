@@ -46,6 +46,7 @@ namespace _2SIO_FSI_Adminstration.WinForm
             this.gestionCoursToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ajouterUnCoursToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.modifierCoursToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
             this.panel2.SuspendLayout();
@@ -58,10 +59,10 @@ namespace _2SIO_FSI_Adminstration.WinForm
             // 
             this.panel3.Controls.Add(this.pbLogo);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel3.Location = new System.Drawing.Point(0, 28);
-            this.panel3.Margin = new System.Windows.Forms.Padding(2);
+            this.panel3.Location = new System.Drawing.Point(0, 34);
+            this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(76, 421);
+            this.panel3.Size = new System.Drawing.Size(101, 519);
             this.panel3.TabIndex = 5;
             // 
             // pbLogo
@@ -69,9 +70,9 @@ namespace _2SIO_FSI_Adminstration.WinForm
             this.pbLogo.Dock = System.Windows.Forms.DockStyle.Top;
             this.pbLogo.Image = ((System.Drawing.Image)(resources.GetObject("pbLogo.Image")));
             this.pbLogo.Location = new System.Drawing.Point(0, 0);
-            this.pbLogo.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.pbLogo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pbLogo.Name = "pbLogo";
-            this.pbLogo.Size = new System.Drawing.Size(76, 73);
+            this.pbLogo.Size = new System.Drawing.Size(101, 90);
             this.pbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbLogo.TabIndex = 1;
             this.pbLogo.TabStop = false;
@@ -82,10 +83,10 @@ namespace _2SIO_FSI_Adminstration.WinForm
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.Controls.Add(this.dgvCLasse);
-            this.panel2.Location = new System.Drawing.Point(81, 28);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2);
+            this.panel2.Location = new System.Drawing.Point(108, 34);
+            this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(693, 421);
+            this.panel2.Size = new System.Drawing.Size(924, 518);
             this.panel2.TabIndex = 4;
             // 
             // dgvCLasse
@@ -97,14 +98,14 @@ namespace _2SIO_FSI_Adminstration.WinForm
             this.dgvCLasse.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCLasse.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvCLasse.Location = new System.Drawing.Point(0, 0);
-            this.dgvCLasse.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.dgvCLasse.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dgvCLasse.MultiSelect = false;
             this.dgvCLasse.Name = "dgvCLasse";
             this.dgvCLasse.ReadOnly = true;
             this.dgvCLasse.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
             this.dgvCLasse.RowTemplate.ReadOnly = true;
             this.dgvCLasse.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvCLasse.Size = new System.Drawing.Size(693, 421);
+            this.dgvCLasse.Size = new System.Drawing.Size(924, 518);
             this.dgvCLasse.TabIndex = 13;
             this.dgvCLasse.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCLasse_CellDoubleClick);
             // 
@@ -113,9 +114,9 @@ namespace _2SIO_FSI_Adminstration.WinForm
             this.panel1.Controls.Add(this.msGlobal);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(774, 28);
+            this.panel1.Size = new System.Drawing.Size(1032, 34);
             this.panel1.TabIndex = 3;
             // 
             // msGlobal
@@ -128,16 +129,17 @@ namespace _2SIO_FSI_Adminstration.WinForm
             this.gestionCoursToolStripMenuItem});
             this.msGlobal.Location = new System.Drawing.Point(0, 0);
             this.msGlobal.Name = "msGlobal";
-            this.msGlobal.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
-            this.msGlobal.Size = new System.Drawing.Size(774, 24);
+            this.msGlobal.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
+            this.msGlobal.Size = new System.Drawing.Size(1032, 28);
             this.msGlobal.TabIndex = 1;
             this.msGlobal.Text = "Menu";
             // 
             // accueilToolStripMenuItem2
             // 
             this.accueilToolStripMenuItem2.Name = "accueilToolStripMenuItem2";
-            this.accueilToolStripMenuItem2.Size = new System.Drawing.Size(58, 20);
+            this.accueilToolStripMenuItem2.Size = new System.Drawing.Size(71, 24);
             this.accueilToolStripMenuItem2.Text = "Accueil";
+            this.accueilToolStripMenuItem2.Click += new System.EventHandler(this.accueilToolStripMenuItem2_Click);
             // 
             // gestionEtudiantToolStripMenuItem1
             // 
@@ -145,20 +147,22 @@ namespace _2SIO_FSI_Adminstration.WinForm
             this.listeDesEtudiantsToolStripMenuItem,
             this.ajouterUnEtudiantToolStripMenuItem});
             this.gestionEtudiantToolStripMenuItem1.Name = "gestionEtudiantToolStripMenuItem1";
-            this.gestionEtudiantToolStripMenuItem1.Size = new System.Drawing.Size(106, 20);
+            this.gestionEtudiantToolStripMenuItem1.Size = new System.Drawing.Size(132, 24);
             this.gestionEtudiantToolStripMenuItem1.Text = "Gestion Etudiant";
             // 
             // listeDesEtudiantsToolStripMenuItem
             // 
             this.listeDesEtudiantsToolStripMenuItem.Name = "listeDesEtudiantsToolStripMenuItem";
-            this.listeDesEtudiantsToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.listeDesEtudiantsToolStripMenuItem.Size = new System.Drawing.Size(220, 26);
             this.listeDesEtudiantsToolStripMenuItem.Text = "Liste des étudiants";
+            this.listeDesEtudiantsToolStripMenuItem.Click += new System.EventHandler(this.listeDesEtudiantsToolStripMenuItem_Click);
             // 
             // ajouterUnEtudiantToolStripMenuItem
             // 
             this.ajouterUnEtudiantToolStripMenuItem.Name = "ajouterUnEtudiantToolStripMenuItem";
-            this.ajouterUnEtudiantToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.ajouterUnEtudiantToolStripMenuItem.Size = new System.Drawing.Size(220, 26);
             this.ajouterUnEtudiantToolStripMenuItem.Text = "Ajouter un étudiant";
+            this.ajouterUnEtudiantToolStripMenuItem.Click += new System.EventHandler(this.ajouterUnEtudiantToolStripMenuItem_Click);
             // 
             // gestionClasseToolStripMenuItem
             // 
@@ -166,20 +170,20 @@ namespace _2SIO_FSI_Adminstration.WinForm
             this.listeDesClassesToolStripMenuItem,
             this.ajouterUneClasseToolStripMenuItem});
             this.gestionClasseToolStripMenuItem.Name = "gestionClasseToolStripMenuItem";
-            this.gestionClasseToolStripMenuItem.Size = new System.Drawing.Size(93, 20);
+            this.gestionClasseToolStripMenuItem.Size = new System.Drawing.Size(116, 24);
             this.gestionClasseToolStripMenuItem.Text = "Gestion classe";
             // 
             // listeDesClassesToolStripMenuItem
             // 
             this.listeDesClassesToolStripMenuItem.Name = "listeDesClassesToolStripMenuItem";
-            this.listeDesClassesToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.listeDesClassesToolStripMenuItem.Size = new System.Drawing.Size(212, 26);
             this.listeDesClassesToolStripMenuItem.Text = "Liste des classes";
             this.listeDesClassesToolStripMenuItem.Click += new System.EventHandler(this.listeDesClassesToolStripMenuItem_Click);
             // 
             // ajouterUneClasseToolStripMenuItem
             // 
             this.ajouterUneClasseToolStripMenuItem.Name = "ajouterUneClasseToolStripMenuItem";
-            this.ajouterUneClasseToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.ajouterUneClasseToolStripMenuItem.Size = new System.Drawing.Size(212, 26);
             this.ajouterUneClasseToolStripMenuItem.Text = "Ajouter une classe";
             this.ajouterUneClasseToolStripMenuItem.Click += new System.EventHandler(this.ajouterUneClasseToolStripMenuItem_Click);
             // 
@@ -187,31 +191,43 @@ namespace _2SIO_FSI_Adminstration.WinForm
             // 
             this.gestionCoursToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.lToolStripMenuItem,
-            this.ajouterUnCoursToolStripMenuItem});
+            this.ajouterUnCoursToolStripMenuItem,
+            this.modifierCoursToolStripMenuItem});
             this.gestionCoursToolStripMenuItem.Name = "gestionCoursToolStripMenuItem";
-            this.gestionCoursToolStripMenuItem.Size = new System.Drawing.Size(91, 20);
+            this.gestionCoursToolStripMenuItem.Size = new System.Drawing.Size(112, 24);
             this.gestionCoursToolStripMenuItem.Text = "Gestion cours";
             // 
             // lToolStripMenuItem
             // 
             this.lToolStripMenuItem.Name = "lToolStripMenuItem";
-            this.lToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.lToolStripMenuItem.Size = new System.Drawing.Size(200, 26);
             this.lToolStripMenuItem.Text = "Liste des cours";
+            this.lToolStripMenuItem.Click += new System.EventHandler(this.lToolStripMenuItem_Click);
             // 
             // ajouterUnCoursToolStripMenuItem
             // 
             this.ajouterUnCoursToolStripMenuItem.Name = "ajouterUnCoursToolStripMenuItem";
-            this.ajouterUnCoursToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.ajouterUnCoursToolStripMenuItem.Size = new System.Drawing.Size(200, 26);
             this.ajouterUnCoursToolStripMenuItem.Text = "Ajouter un cours";
+            this.ajouterUnCoursToolStripMenuItem.Click += new System.EventHandler(this.ajouterUnCoursToolStripMenuItem_Click);
+            // 
+            // modifierCoursToolStripMenuItem
+            // 
+            this.modifierCoursToolStripMenuItem.Name = "modifierCoursToolStripMenuItem";
+            this.modifierCoursToolStripMenuItem.Size = new System.Drawing.Size(200, 26);
+            this.modifierCoursToolStripMenuItem.Text = "Modifier cours";
+            this.modifierCoursToolStripMenuItem.Click += new System.EventHandler(this.modifierCoursToolStripMenuItem_Click);
             // 
             // ListeClasse
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(774, 449);
+            this.ClientSize = new System.Drawing.Size(1032, 553);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ListeClasse";
             this.Text = "ListeClasse";
             this.Load += new System.EventHandler(this.ListeClasse_Load_1);
@@ -245,5 +261,6 @@ namespace _2SIO_FSI_Adminstration.WinForm
         private System.Windows.Forms.ToolStripMenuItem gestionCoursToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem lToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ajouterUnCoursToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem modifierCoursToolStripMenuItem;
     }
 }

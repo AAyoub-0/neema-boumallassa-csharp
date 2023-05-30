@@ -10,11 +10,11 @@ namespace _2SIO_FSI_Adminstration.Classe
 {
     internal class Database
     {
-        private string _dbname = "2SIO_Appli_Administration";
+        private string _dbname = "2SIO_Appli_Administration_v2";
         private string _server = "localhost";
         private string _port = "5432";
         private string _user = "postgres";
-        private string _password = "Y@utub32112";
+        private string _password = "012356";
         public NpgsqlConnection MyCnx { get; set; }
 
         public Database()
